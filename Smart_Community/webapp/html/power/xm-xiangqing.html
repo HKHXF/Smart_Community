@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/xm-xiangqing.css">
+
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/layer/layer.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">  
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right"> 
+				<a href="#" id="result" class="navbar-link"></a>
+				</p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span style="color: #5cc0c0">项目选择</span></a>
+			</div>
+
+
+<div class="main-body">
+	<div class="main_left" style="height:470px;">
+
+		<div class="center_2">
+                    <div class="btn-group btn-group-lg">
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             项目概况 -->
+<!--                         </button> -->
+            <a href="/homepage/xmGuanli" class="btn btn-default" style="background-color: #ddd;">项目概况</a>
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             经营运行 -->
+<!--                         </button> -->
+            <a href="/homepage/operation" class="btn btn-default">经营运行</a>
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             职员信息 -->
+<!--                         </button> -->
+            <a href="/powerProject/zhiyuanxinxi" class="btn btn-default" >职员信息</a>
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             维保记录 -->
+<!--                         </button> -->
+            <a href="/powerProject/weibao" class="btn btn-default" >维保记录</a>
+                        <button class="btn btn-default" type="button">
+                            报修记录
+                        </button>
+                    </div>
+                </div>
+
+
+			<div class="panel-heading" style="margin-top: 20px; border-top:1px solid #ddd; background-color: #fbfbfb; "> 
+				<h3 class="panel-title">项目详情</h3>
+			</div>
+		<div class="main_nav">
+				<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;"></p>
+		</div>
+		<div class="main_left_l">
+					
+			<div class="row">
+			    <div class="col-sm-6 col-md-3">
+			         <div class="thumbnail" style="height:250px; overflow: hidden;">
+			            <img id="image" src="" 
+			             alt="暂无图片..." class="data-img" style="height:250px;">
+			             <input type="text" style="display:none" id="id" />
+			             <input type="text" style="display:none" id="name" />
+			             <input type="text" style="display:none" id="runtime" />
+			            <div class="caption">
+			                
+<!-- 			                <p style="margin: 0 auto;width: 108px;height: 30px;"> -->
+							<!--<a href="/homepage/function" class="btn btn-primary" role="button"> -->
+							<!--进入项目 -->
+							<!-- </a>  -->
+<!-- 			                 <button type="button" class="btn btn-primary" id="bun">进入项目</button>    -->
+			                 
+<!-- 			                </p> -->
+			            </div>
+			         </div>
+			    </div>
+			    
+			    
+			</div>
+		</div>
+
+		<div class="main_left_r">
+				<div class="main_left_r1">
+				
+				  
+				  
+					<p><a href="#">项目名称：<strong id="projectName"></strong></a><a href="#">所属区域：<strong id="proName">安徽区域</strong></a>
+					<a href="#">项目地址：<strong id="projectAddress"></strong></a></p>
+						<textarea style="width:100%;height:220px;margin-top: 20px; line-height: 22px; margin: 0 auto;resize:none;" id ="projectIntroduce"></textarea>
+						
+				</div>
+		</div>
+
+
+
+
+		<ul class="pagination pagination-sm">
+					</ul>
+			
+
+
+</div>
+
+	
+	
+	
+</div>
+
+
+	<div class="main3">		
+		<div class="main3_con">		
+				<div class="main3_l">			
+					<div class="panel-heading" style=" background-color: #fbfbfb;"> 
+						<h3 class="panel-title">托管信息</h3>
+					</div>
+
+					<div class="main_rc2">
+										
+											<ul>
+												<li><span>项目类型：</span><a herf="#" id="conditionerArea"></a></li>
+												<li><span>签约客户：</span><a herf="#" id="contractCustomer"></a></li>
+												<li><span>托管日期：</span><a herf="#" id="trusteeshipTime"></a></li>
+												<li><span>到期日期：</span><a herf="#" id="expireTime"></a></li>
+												
+												
+											</ul>	
+											<ul style=" padding-left: 20px;">
+												<li><span>合同期限：</span><a herf="#" id="contractLife"></a></li>
+												<li><span>能源费定价(元/㎡)：</span><a herf="#" id="energyPrice"></a></li>
+												<li><span>收费面积(万㎡)：</span><a herf="#" id="chargingArea"></a></li>
+												<li><span>建筑面积(万㎡)：</span><a herf="#" id="projectArea"></a></li>
+												
+											</ul>	
+										
+					</div>
+
+
+
+
+
+				</div>
+				<div class="main3_r">			
+					<div class="panel-heading" style=" background-color: #fbfbfb;"> 
+						<h3 class="panel-title">能源技术信息</h3>
+					</div>
+
+						<div class="main_rc2">
+										
+											<ul>
+												<li><span>设计热负荷(kW):</span><a herf="#" id="designHeatingLoad"></a></li>
+												<li><span>设计冷负荷(kW):</span><a herf="#" id="designCoolingLoad"></a></li>
+												<li><span>设计单位热负荷(kW/m2):</span><a herf="#" id="companyHeatingLoad"></a></li>
+												<li><span>设计单位冷负荷(kW/m2):</span><a herf="#" id="companyCoolingLoad"></a></li>
+												
+												
+											</ul>	
+											<ul style=" padding-left: 20px;">
+												<li><span>主机形式：</span><a herf="#" id="hostOnly"></a></li>
+												<li><span>电价(元/kW·h):</span><a herf="#" id="electricPrice"></a></li>
+												<li><span>水价(元/吨):</span><a herf="#" id="waterPrice"></a></li>
+												<li><span>气价(元/Nm3):</span><a herf="#" id="gasPrice"></a></li>
+											</ul>	
+										
+						</div>
+
+				</div>
+
+<!-- 				 <a href="/powerProject/update?projectId=07dacb7520af4d8c959acd5b7857fb89" target="main-body" class="btn btn-primary">修改项目</a> -->
+			</div>
+				<div class="main3_x">
+				    <input type="text" id="xiugaiId" style="display:none">
+					<button type="button" id="xiugaixinx" class="btn btn-info">修改信息</button>
+<!-- 					<a href="/powerProject/update" class="btn btn-info">修改信息</a> -->
+<!-- 					<button type="button" class="btn btn-info" style="background-color: #ccc;color: #666;border: none; margin-left: 30px;">返回列表</button> -->
+					<a href="/homepage/xmGuanli" class="btn btn-info" style="background-color: #ccc;color: #666;border: none; margin-left: 30px; ">返回列表</a>
+				</div>
+
+	</div><!-- main3结束 -->
+
+
+
+
+
+</div>
+
+	
+<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/public.js"></script>
+<script type="text/javascript" src="/js/power/xm-xiangqing.js"></script>
+</body>
+</html>

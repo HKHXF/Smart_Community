@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>智慧社区-项目列表</title>
+<link rel="icon" href="/images/toubu.png" >
+<script type="text/javascript" src="/js/jquery-3.2.1.js" ></script>
+</head>
+<body>
+<div>
+
+				<#if list ??>
+				
+						  <table align="center" width="95%" border="1" cellpadding="2" cellspacing="1" >
+								   项目列表
+												  <tr>
+												    <th>编号</th>
+												    <th>项目名称</th>
+												    <th>项目地址</th>
+												    <th>项目区域</th>
+												    <th>项目面积</th>
+												    <th>项目类型</th>
+												    <th>主机形式</th>
+												    <th>设计冷负荷</th>
+												    <th>设计热负荷</th>
+												    <th>项目简介</th>
+												    <th>项目图片路径</th>
+												  </tr>
+								   <#list list as item>
+												  <tr>
+												    <td><input type="radio" value="${item.projectId}" name="chk_uid">${item_index+1}</td> 
+												    <td>${item.projectName}</td>
+												    <td>${item.projectAddress}</td>
+												    <td>${item.projectRegion}</td>
+												    <td>${item.projectArea}</td>
+												    <td>${item.projectType}</td>
+												    <td>${item.hostOnly}</td>
+												    <td>${item.designCoolingLoadLoad}</td>
+												    <td>${item.designHeatingLoad}</td>
+												    <td>${item.projectDetails}</td>
+												    <td>${item.projectImage}</td>
+												  </tr>
+								   </#list>
+						 </table>
+				
+				</#if>
+</div>
+
+<br>
+<div class="container-fluid layer-content-custom">
+   <form class="form-horizontal m-t" role="form" id="theForm" enctype="multipart/form-data">
+           
+		<div class="form-group">
+           <label class="col-sm-3 control-label">图片路径</label>
+           <div class="col-sm-7">
+           		<input type="file" name="upFiles" multiple="multiple" accept="image/png,image/gif,image/jpeg"/>
+           		已选ID：	<input type="text" name="projectId" id="projectId"/>
+           </div>
+		</div>
+       </div>
+
+	</form>
+</div>
+<br>
+<div class="layer-footer-custom">
+	<div class="col-sm-12">
+		<button class="btn btn-primary m-r-xs" id="submitBtn">提交</button>
+		<button class="btn btn-white m-l-xs" id="cancelBtn">取消</button>
+	</div>
+</div>
+<br>
+<iframe src="http://www.baidu.com" style="width: 80%;height: 80%;"></iframe>
+
+<script type="text/javascript">
+$("input[name='chk_uid']").click(function(){
+	var chackBox = $("input[name='chk_uid']:checked").val();
+	$("#projectId").val(chackBox);
+});
+$("#submitBtn").click(function(){
+	var projectId = $("#projectId").val();
+	var formData = new FormData($( "#theForm" )[0]);
+	 $.ajax({
+	 	type: "POST",
+	  	url: "/PowerProject/uploadInmge",
+	  	async: false,  
+       cache: false,  
+       contentType: false,  
+       processData: false,  
+// 	  	data:{"projectId":chackBox,"upFiles":formData},
+       data:formData,
+	   success: function(msg){
+             alert("成功");
+             window.location.href="/PowerProject/queryListAll";
+	  	},
+	  	error:function(){
+	  		alert("系统异常,请稍候再试!!!");
+	  	}
+	 });
+});
+</script>
+</body>
+</html>

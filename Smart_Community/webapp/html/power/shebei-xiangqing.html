@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/shebei-xiangqing.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts.js"></script>
+	<script type="text/javascript" src="/layer/layer.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right"> 
+				<a href="#" id="result" class="navbar-link"></a>
+				</p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span>维保报修 > </span><span style="color: #5cc0c0">设备详情</span></a>
+			</div>
+
+
+		<div class="main-body">
+				<div class="main_l">
+					<div class="main_x1">
+					<div class="main_left_nav" style=" height:40px;background-color: #f5f5f5;border-bottom: 1px solid #dddddd;">
+						<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">维保记录
+						
+					</div>
+
+						<div class="main_xcon">
+							<p>2017.8.15  新回风过滤网清洗</p>
+							<p>2017.8.15  新回风过滤网清洗</p>	
+							<p>2017.8.15  新回风过滤网清洗</p>	
+							<p>2017.8.15  新回风过滤网清洗</p>	
+							<p>2017.8.15  新回风过滤网清洗</p>	
+						</div>	
+					</div>		
+					<div class="main_x2">
+						<div class="main_left_nav" style=" height:40px;background-color: #f5f5f5;border-bottom: 1px solid #dddddd;border-top: 1px solid #dddddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">维修记录
+							
+						</div>
+						<div class="main_x2con">
+							<p>2017.7.15   四通阀破损换新</p>
+							<p>2017.7.15   四通阀破损换新</p>	
+							<p>2017.7.15   四通阀破损换新</p>	
+							<p>2017.7.15   四通阀破损换新</p>	
+							<p>2017.7.15   四通阀破损换新</p>	
+						</div>	
+							
+					</div>		
+								
+
+				</div><!-- main_l结束 -->
+
+				<div class="main_r">
+						<div class="main_left_nav" style=" height:40px;background-color: #f5f5f5;border-bottom: 1px solid #dddddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;"><span id="equipmentName"></span>
+						</div>
+							<div class="main_rc">
+								<p>区域名称：<span id="regionName"></span></p>
+								<p>项目名称：<span id="projectName"></span></p>
+								<p>安装地址：<span id="installationAddress"></span></p>
+								<p>生产厂家：<span id="manufacturer"></span></p>
+								<p>生产厂家地址：<span id="gomanufacturerAddress"></span></p>
+								<p>联系电话：<span id="contactNumber"></span></p>
+							</div>
+
+						<div class="main_con"> 
+							<div class="main_left_nav" style=" height:40px;background-color: #f5f5f5;border-top: 1px solid #dddddd;border-bottom: 1px solid #dddddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">机组参数
+							</div>
+							<div class="main_rc2">
+								
+									<ul style="width: 40%; float: left;">
+										<li><a herf="#">机组型号：<span id="unitModel"></span></a></li>
+										<li><a herf="#">出厂编号：<span id="factoryNumber"></span></a></li>
+										<li><a herf="#">功率kW：<span id="power"></span></a></li>
+										<li><a herf="#">电压V:<span id="voltage"></span></a></li>
+										<li><a herf="#">重量kg:<span id="weight"></span></a></li>
+										<li><a herf="#">扬程m：<span id="lift"></span></a></li>
+										<li><a herf="#">转速r/min:<span id="speed"></span></a></li>
+										<li><a herf="#">流量m3/h：<span id="flow"></span></a></li>
+									</ul>	
+									<ul style=" width: 40%;">
+										<li><a herf="#">回路数：<span id="loopNumber"></span></a></li>
+										<li><a herf="#">温度限制℃：<span id="temperatureRestriction"></span></a></li>
+										<li><a herf="#">容量m3:<span id="capacity"></span></a></li>
+										<li><a herf="#">电流A：<span id="electricCurrent"></span></a></li>
+										<li><a herf="#">备注：<textarea id="remarks" style="width:80%;height:100px;vertical-align: top; resize:none;"></textarea></a></li>
+									</ul>	
+								
+							</div>
+
+						</div>
+
+						<div class="main_con2">
+							<div class="main_left_nav" style=" height:40px;background-color: #f5f5f5;border-top: 1px solid #dddddd;border-bottom: 1px solid #dddddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">安装维保信息
+							</div>
+							<div class="main_rc2">
+								
+									<ul style=" width: 30%; float: left;">
+										<li><a herf="#">是否使用：<span id="ifEasyUse"></span></a></li>
+										<li><a herf="#">是否完好：<span id="ifIntact"></span></a></li>
+										<li><a herf="#">设备使用状态：<span id="usingState"></span></a></li>
+										<li><a herf="#">设备完好状态：<span id="intactState"></span></a></li>
+										
+										
+									</ul>	
+									<ul  style=" width: 30%;">
+										<li><a herf="#">安装单位：<span id="installationUnit"></span></a></li>
+										<li><a herf="#">安装联系人：<span id="installContacts"></span></a></li>
+										<li><a herf="#">联系方式：<span id="contactInformation"></span></a></li>
+										<li><a herf="#">保修终止日：<span id="warrantyTermination"></span></a></li>
+										
+									</ul>	
+									<ul  style=" width: 30%;">
+										<li><a herf="#">安装日期：<span id="installTime"></span></a></li>
+										<li><a herf="#">启用时间：<span id="enableTime"></span></a></li>
+										<li><a herf="#">交接时运行状况：<span id="handoverTimeType"></span></a></li>
+									
+									</ul>
+								
+							</div>
+							<input type="text" id="xiugaiId" style="display:none">
+							<button type="button" class="btn btn-info" id="update">修改信息</button>
+<!-- 							<a href="/equipmentIedger/update"  class="btn btn-info">修改信息</a> -->
+<!-- 							<button type="button" class="btn btn-info dele" style="background-color: #ccc;color: #666;border: none;">取消</button> -->
+							<a href="/homepage/shebei" class="btn btn-info dele" style="background-color: #ccc;color: #666;border: none;">取消</a>
+
+
+						</div>
+
+
+						</div>
+
+
+				</div>	
+
+				
+			</div>
+
+
+
+		
+
+
+</div><!-- main-body结束 -->
+
+		
+
+
+
+
+	</div>
+<!-- 主体结束 -->
+<script type="text/javascript" src="/js/power/shebei-xiangqing.js"></script>
+</body>
+</html>

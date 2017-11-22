@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/function.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts.js"></script>
+	<script type="text/javascript" src="../../layer/layer.js"></script>
+	<script type="text/javascript" src="../../js/macarons.js"></script>
+	<script type="text/javascript" src="../../js/XTYX.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right">
+				 <a href="#" id="result" class="navbar-link"></a>
+				 </p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span style="color: #5cc0c0">系统运行</span></a>
+			</div>
+
+
+	<div class="main-body">
+			<div class="main_left">
+				<div class="left_ll">
+							<div class="main_1">
+								<div class="row">
+									  <div class="col-xs-6 col-md-3" style="width: 32%;">
+									  <a href="/powerProject/yunxin-canshu" class="thumbnail" style=" background-color: #fff;">
+									  <div class="box1"><img src="../../img/f_1.png"></div>
+									      <div class="box2"><p class="ppp">运行参数</p></div>
+									      
+									    </a>
+									  </div>
+								  	<div class="col-xs-6 col-md-3" style="width: 32%;">
+									    <a href="#" class="thumbnail" style=" background-color: #fff;">
+									  <div class="box1"><img src="../../img/f_2.png"></div>
+									      <div class="box2"><p class="ppp">调节记录</p></div>
+									      
+									    </a>
+									  </div>
+									  <div class="col-xs-6 col-md-3" style="width: 32%;">
+									    <a href="/homepage/delSession" class="thumbnail" id="xiangmuMingZi" style=" background-color: #66d1d1;">
+									      <p class="right_11" id="powerName"></p>
+									      <h4 class="h4" style="font-size: 15px;"><i class="glyphicon glyphicon-circle-arrow-left"></i>运行时间：<span id="runningTime"></span></h4>
+									    </a>
+									  </div>
+								</div> 
+							</div>
+						<div class="main_1">
+							<div class="row">
+								  	<div class="col-xs-6 col-md-3" style="width: 32%;">
+								    	<a href="/homepage/nenghaoHome" class="thumbnail" style=" background-color: #fff;">
+								  		<div class="box1"><img src="../../img/f_3.png"></div>
+								      	<div class="box2"><p class="ppp">运行能耗</p></div>							      
+								    	</a>
+								  	</div>
+							  		<div class="col-xs-6 col-md-3" style="width: 32%;">
+									   	<a href="#" class="thumbnail" id="yunxinJilu" style=" background-color: #fff;">
+									  	<div class="box1"><img src="../../img/f_4.png"></div>
+									    <div class="box2"><p class="ppp">空气质量监测</p></div>      
+									    </a>
+								  	</div>
+								 
+									<div class="col-xs-6 col-md-3" style="width: 32%;">
+											<a href="#" class="thumbnail" style=" background-color: #5cc0c0;">
+												<div class="center">
+													<div class="center_l">
+														<p class="right_22">当前负荷</p>
+														<h4 class="dd" style="font-size: 20px;margin-top: 25px;" id="fuheNow"></h4>
+													</div>
+													<div class="center_r">
+														<p class="right_22">同比上小时</p>
+														<p class="right_22" id="fuheLastBai"></p>
+														<h4 class="dd" style="font-size: 20px; margin-top: 5px;" id="fuheLast"></h4>
+													</div>
+												</div>
+											</a>
+									</div>  
+								</div>
+						</div>
+					</div>	<!-- left_ll结束 -->
+
+						<div class="right_rr">
+								<div class="right_rr_con">
+									<div class="right_rr_1">
+										<p id="day"></p>
+										<p ><img id="dayDuring" src=""/></p>
+										<p ><img id="dayNight" src="" style="margin-top: 18px" /></p>
+										<p id="tianqiType"></p>
+										<p><span id="zuigao"></span><img src="../../img/cc_1.png" style="width: 12px;height: 12px;" /><span id="zuiDi"></span><img src="../../img/cc_1.png" style="width: 12px;height: 12px;"/></p>
+										
+									</div>
+									<div class="right_rr_2">
+										<p id="dayTwo"></p>
+										<p><img id="dayDuring2" src=""/></p>
+										<p><img id="dayNight2" src="" style="margin-top: 18px" /></p>
+										<p id="tianqiTypeTwo"></p>
+										<p><span id="zuigaoTwo"></span><img src="../../img/cc_1.png" style="width: 12px;height: 12px;" /><span id="zuiDiTwo"></span><img src="../../img/cc_1.png" style="width: 12px;height: 12px;"/></p>
+										
+									</div>
+									
+									<div class="right_rr_3">
+										<p id="dayThree"></p>
+										<p><img id="dayDuring3" src=""/></p>
+										<p><img id="dayNight3" src="" style="margin-top: 18px" /></p>
+										<p id="tianqiTypeThree"></p>
+										<p><span id="zuigaoThree"></span><img src="../../img/cc_1.png" style="width: 12px;height: 12px;" /><span id="zuiDiThree"></span><img src="../../img/cc_1.png" style="width: 12px;height: 12px;"/></p>
+										
+									</div>
+								
+								</div>
+						</div>
+				</div><!-- main_left结束 -->
+		
+
+				<!-- main_left2 -->
+					<div class="main_left2">
+						<div class="main_left_1">
+								<div class="main_left_nav">
+								<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">基本信息</p>
+								</div>
+								<div class="main_left_content">
+									<p>更新时间：<span id="timeGo"></span></p>
+									<p>空调面积：<span id="areaHVAC"></span></p>
+									<p>系统总负荷：<span id="loadTotal"></span></p>
+									<p>低区天棚负荷：<span id="loadDQTP"></span></p>
+									<p>高区天棚加新风负荷：<span id="loadGQXF"></span></p>
+									<p>单位平米负荷：<span id="loadAvg"></span></p>
+									<p>低区天棚流量：<span id="l1Ft01"></span></p>
+									<p>高区天棚加新风流量：<span id="l1Ft02"></span></p>
+									<p>地源侧流量：<span id="l1Ft03"></span></p>
+								</div>
+							</div>
+							<div class="main_left_2">
+								<div class="main_left2_nav">
+									<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">室外气象</p>
+								</div>
+								<div class="main_left2_content">
+										<div class="main_left2_l" >
+										<p style="color: #444;">室外温度</p>
+											
+			                                <p style="font-size: 50px;color: #5cc0c0;margin-top: 30px;    width: 100px;" id="wendu"></p>
+			                                <div class="p_b">
+											<p style="font-size: 16px;color: #888888;margin-top: 50px;" >PM2.5&nbsp&nbsp<span style=" font-size: 20px" id="pm25"></span></p>
+											</div>
+										</div>
+										<div class="main_left2_r">
+
+
+										<p>室外湿度</p>
+											<p style="font-size: 50px;color: #5cc0c0;margin-top: 30px;    width: 100px;" id="humidity"></p>
+											
+										</div>
+								</div>
+							</div>
+							<div class="main_left_3">
+								<div class="main_left3_nav">
+									<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">主机运行信息</p>
+								</div>
+								<div class="main_left3_content">
+									
+									<p>低区天棚分水器温度：<span id="l1Tt01"></span></p>
+									<p>低区天棚集水器温度：<span id="l1Tt02"></span></p>
+									<h4></h4>
+									<p>高区加新风分水器温度：<span id="l1Tt03"></span></p>
+									<p>高区加新风集水器温度：<span id="l1Tt04"></span></p>
+									<h4></h4>
+									<p>地源侧出水温度：<span id="l1Tt06"></span></p>
+									<p>地源侧回水温度：<span id="l1Tt05"></span></p>
+									<h4></h4>
+									<p>冷却塔出水温度：<span id="l1Tt07"></span></p>
+									<p>冷却塔回水温度：<span id="l1Tt08"></span></p>
+									
+								</div>
+							</div>
+							<div class="main_left_4">
+								<div class="main_left4_nav">
+									
+								</div>
+								<div class="main_left4_content">
+									
+									<p>低区天棚循环泵变频频率：<span id="l1tpbD6"></span></p>
+									<p>高区加新风循环泵变频频率：<span id="l1xfbD6"></span></p>
+									<p>地源循环泵变频频率：<span id="l1dybD6"></span></p>
+									<p>冷却塔循环泵变频频率：<span id="l1lqbD6"></span></p>
+									
+									
+								</div>
+							</div>
+
+					</div><!-- main_left2结束 -->
+
+<!-- 图表 -->
+					<div class="main_tubiao" style="width: 100%; height: 450px;margin-top: 30px;border-radius: 3px;background-color: #fff;border: 1px solid #dddddd;">
+					<div class="main3_nav">
+									<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">系统制冷/供热量</p>
+								</div>
+						<div id="chart-three" class="myChart3" style="width: 90%; height: 400px; margin: 0 auto;margin-top: 20px;"></div>
+					</div>
+
+
+
+				<!-- main3 -->
+					<div class="main_left3">
+			
+						<div class="con">
+							<div class="con_l">
+								<div class="main3_nav">
+									<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">设备调节记录</p>
+								</div>
+								<div class="con_c">
+								
+									<ul id="myTab" class="nav nav-tabs" style="margin-top: 10px;">
+										<li class="active">
+											<a href="#home" data-toggle="tab" id="xiaji">夏季模式</a>
+										</li>
+										<li><a href="#ios" data-toggle="tab" id="dongji">冬季模式</a></li>
+										
+									</ul>
+									<div id="myTabContent" class="tab-content">
+										<div class="tab-pane fade in active" id="home" style="width: 100%;">
+											<div id="mode1chatrs" style="width: 100%;height:250px; margin-top: 10px;"></div>
+										</div>
+										<div class="tab-pane fade in active" id="ios" style="width: 100%;">
+											<div id="mode8chatrs" style="width: 100%;height:250px; margin-top: 10px;">asdas</div>
+										</div>
+										
+									</div>
+								
+								</div>
+
+
+							</div>
+							<div class="con_r">
+								<div class="main3_nav">
+									<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">区域空气品质信息</p>
+								</div>
+								<div class="con_r_l">
+									
+								
+								</div>
+								<div class="con_r_r">
+									<div class="con_r_cc" style=" overflow: hidden;margin-right: 20px;margin-top: 20px;">
+										<table class="table table-striped tab">
+											  
+											  <thead>
+											    <tr>
+											      <th></th>
+											      <th>1#顶AHU</th>
+											      <th>1#底AHU</th>
+											      <th>2#顶AHU</th>
+											      <th>2#底AHU</th>
+											      <th>3#顶AHU</th>
+											      <th>3#底AHU</th>
+											    </tr>
+
+											  </thead>
+											  <tbody>
+											    <tr>
+											      <td>送风温度</td>
+											      <td id="t1Rf1T3"></td>
+											      <td id="t1B11T3"></td>
+											      <td id="t2Rf1T3"></td>
+											      <td id="t2B11T3"></td>
+											      <td id="t3Rf1T3"></td>
+											      <td id="t3B11T3"></td>
+											    </tr>
+											    <tr>
+											      <td>送风湿度</td>
+											      <td id="t1Rf1H1"></td>
+											      <td id="t1B11H1"></td>
+											      <td id="t2Rf1H1"></td>
+											      <td id="t2B11H1"></td>
+											      <td id="t3Rf1H1"></td>
+											      <td id="t3B11H1"></td>
+											    </tr>
+											    <tr>
+											      <td>回风温度</td>
+											      <td id="t1Rf1T4"></td>
+											      <td id="t1B11T4"></td>
+											      <td id="t2Rf1T4"></td>
+											      <td id="t2B11T4"></td>
+											      <td id="t3Rf1T4"></td>
+											      <td id="t3B11T4"></td>
+											    </tr>
+											    <tr>
+											      <td>回风湿度</td>
+											      <td id="t1Rf1H2"></td>
+											      <td id="t1B11H2"></td>
+											      <td id="t2Rf1H2"></td>
+											      <td id="t2B11H2"></td>
+											      <td id="t3Rf1H2"></td>
+											      <td id="t3B11H2"></td>
+											    </tr>
+											    <tr>
+											      <td>二氧化碳浓度</td>
+											      <td id="t1Rf1Co2"></td>
+											      <td id="t1B11Co2"></td>
+											      <td id="t2Rf1Co2"></td>
+											      <td id="t2B11Co2"></td>
+											      <td id="t3Rf1Co2"></td>
+											      <td id="t3B11Co2"></td>
+											    </tr>
+
+											  </tbody>
+											</table>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+					</div><!-- main3结束 -->
+
+	</div><!-- main-body结束 -->
+			
+</div><!-- main结束 -->
+
+
+
+		
+
+
+<input type="text" style="display:none;" id="toID" value="${toID}">
+<input type="text" style="display:none;" id="city">
+<input type="text" style="display:none;" id="tableName" value="${tableNameTo}">
+<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/power/function.js"></script> 
+<script type="text/javascript">
+var url =  decodeURIComponent(window.location.href);
+// alert(url);
+</script>
+
+</body>
+</html>

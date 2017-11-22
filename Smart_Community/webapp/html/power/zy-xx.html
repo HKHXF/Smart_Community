@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/zy-xx.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../layer/layer.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right"> 
+				<a href="#" id="result" class="navbar-link"></a>
+				</p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span style="color: #5cc0c0">职员信息</span></a>
+			</div>
+
+
+		<div class="main-body">
+			<div class="main_1">
+						
+				<div class="center_1">
+                    <div class="btn-group btn-group-lg">
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             项目概况 -->
+<!--                         </button> -->
+                        <a href="/homepage/xmGuanli" class="btn btn-default">项目概况</a>
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             经营运行 -->
+<!--                         </button> -->
+                       <a href="/homepage/operation" class="btn btn-default">经营运行</a>
+                       <a href="/powerProject/zhiyuanxinxi" class="btn btn-default" style="background-color: #ddd;">职员信息</a>
+<!--                         <button class="btn btn-default" type="button"> -->
+<!--                             维保记录 -->
+<!--                         </button> -->
+                       <a href="/powerProject/weibao" class="btn btn-default" >维保记录</a>
+                        <button class="btn btn-default" type="button">
+                            报修记录
+                        </button>
+                    </div>
+                </div>
+
+
+
+
+					<div class="main_1_c">
+							<form class="bs-example bs-example-form" role="form">
+					<div class="row">
+						<div class="btn_l">
+							<div class="col-lg-6">
+							<div class="input-group">
+								<input type="text" class="form-control areaSelect"  value="请选择" style="width: 88px;" disabled="disabled">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+										 
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu pull-right" id="areaSelect">
+									</ul>
+								</div><!-- /btn-group -->
+							</div><!-- /input-group -->
+						</div><!-- /.col-lg-6 -->
+
+						<div class="col-lg-6">
+							<div class="input-group">
+								<input type="text" class="form-control projectSelect"  value="请选择" style="width: 88px;" disabled="disabled">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+										 
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu pull-right" id="projectSelect">
+										
+									</ul>
+								</div><!-- /btn-group -->
+							</div><!-- /input-group -->
+						</div><!-- /.col-lg-6 -->
+
+
+						
+
+
+
+						
+					</div>
+						<div class="btn_r">
+<!-- 							<button type="button" class="btn btn-info" style="margin-left: 10px">新增</button> -->
+
+							<a href="/StaffInformationController/panban" class="btn btn-info"  style="margin-left: 10px">查看排班记录</a>
+							<button type="button" class="btn btn-info"  style="margin-left: 10px" id="xinzeng">新增</button>
+							<button type="button" class="btn btn-info" id="daochu" style="margin-left: 10px">导出</button>
+						</div>
+
+
+					</div><!-- /.row -->
+				</form>
+			</div>
+					<div class="main_2">
+						<table class="table table-striped">
+					
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>姓名</th>
+								<th>项目名称</th>
+								<th>项目区域</th>
+								<th>年龄</th>
+								<th>职位</th>
+								<th>联系电话</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="HtmlList">
+							
+							
+						</tbody>
+					</table>
+					</div>
+					<div class="fenye">
+						
+						<ul class="pagination">
+							
+						</ul>
+					</div>
+					<div class="fenye2"></div>
+			</div><!-- main-left结束 -->
+
+					
+
+				
+			</div>
+
+
+
+
+
+
+
+
+<!-- 按钮触发模态框xinzeng -->
+
+<div class="modal fade" id="myModal22" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 444px;margin: 0 auto;">
+                <div class="modal-header">
+                    
+                    <h4 class="modal-title" id="myModalLabel">
+                        项目类型<span><i class="glyphicon glyphicon-remove" data-dismiss="modal" style="float: right; color: #ccc"></i></span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                        <div class="main">
+                            <form class="form-horizontal" role="form" id="toform">
+								  <div class="form-group">
+								    <label for="firstname" class="col-sm-2 control-label" style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp姓名:</label>
+								    <div class="col-sm-10" style="width: 79.333%">
+								      <input type="text" class="form-control" id="staffName" name="staffName" placeholder="">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="lastname" class="col-sm-2 control-label" style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp项目区域:</label>
+									    <div class="col-sm-10" style="width: 79.333%">
+										      <select class="form-control" id="toquyu" name="regionId">
+											      
+											   </select>
+									    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="lastname" class="col-sm-2 control-label" style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp项目名称:</label>
+									    <div class="col-sm-10" style="width: 79.333%">
+										      <select class="form-control" id="toxiangmu" name="projectId">
+											     
+											   </select>
+									    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="firstname" class="col-sm-2 control-label" style="width: 19%;">年龄:</label>
+								    <div class="col-sm-10" style="width: 79.333%">
+								      <input type="text" class="form-control" id="age" name="age" placeholder="">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="lastname" class="col-sm-2 control-label" style="width: 19%;"><img src="../../img/xing.png" style="width:; height:10px; margin-top: -3px;" />&nbsp职位:</label>
+									    <div class="col-sm-10" style="width: 79.333%">
+										      <select class="form-control" id="position" name="position">
+											      <option value='0'>请选择</option>
+											      <option value='暖通工程师'>暖通工程师</option>
+											      <option value='暖通主管'>暖通主管</option>
+											      <option value='暖通技工'>暖通技工</option>
+											   </select>
+									    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="firstname" class="col-sm-2 control-label" style="width: 19%;">联系方式:</label>
+								    <div class="col-sm-10" style="width: 79.333%">
+								      <input type="text" class="form-control" id="contactInformation" name="contactInformation" placeholder="">
+								    </div>
+								  </div>
+								  
+								  <div class="form-group">
+								    <div class="col-sm-offset-2 col-sm-10" style="width: 82%">
+								    	<button type="submit" class="btn btn-default" style="float: right;" data-dismiss="modal">取消</button>
+								      	<button type="button" id="baocun" class="btn btn-default btn1" style="float: right;margin-right: 10px; color: #fff;">确定</button>
+								      
+								    </div>
+
+								  </div>
+							</form>
+                                
+                        </div>
+                    <div class="modal-footer"></div>
+                </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+
+
+
+
+<!-- 按钮触发模态框修改 -->
+
+<div class="modal fade" id="myModal08" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 444px;margin: 0 auto;">
+                <div class="modal-header">
+                    
+                    <h4 class="modal-title" id="myModalLabel">
+                        项目类型<span><i class="glyphicon glyphicon-remove" data-dismiss="modal" style="float: right; color: #ccc"></i></span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                        <div class="main">
+                            <form class="form-horizontal" role="form" id="toform2">
+								  <div class="form-group">
+								    <label for="firstname" class="col-sm-2 control-label"style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp姓名:</label>
+								    <div class="col-sm-10" style="width: 79.333%">
+								      <input type="text" class="form-control" id="staffName1" name="staffName" placeholder="">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="lastname" class="col-sm-2 control-label"style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp项目区域:</label>
+									    <div class="col-sm-10" style="width: 79.333%">
+										      <select class="form-control" id="toquyu1" name="regionId">
+											      
+											   </select>
+									    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="lastname" class="col-sm-2 control-label"style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp项目名称:</label>
+									    <div class="col-sm-10" style="width: 79.333%">
+										      <select class="form-control" id="toxiangmu1" name="projectId">
+											     
+											   </select>
+									    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="firstname" class="col-sm-2 control-label"style="width: 19%;">年龄:</label>
+								    <div class="col-sm-10"style="width: 79.333333%;">
+								      <input type="text" class="form-control" id="age1" name="age" placeholder="">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="lastname" class="col-sm-2 control-label"style="width: 19%;"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp职位:</label>
+									    <div class="col-sm-10" style="width: 79.333%">
+										      <select class="form-control" id="position1" name="position">
+											      <option value='0'>请选择</option>
+											      <option value='暖通工程师'>暖通工程师</option>
+											      <option value='暖通主管'>暖通主管</option>
+											      <option value='暖通技工'>暖通技工</option>
+											   </select>
+									    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="firstname" class="col-sm-2 control-label"style="width: 19%;">联系方式:</label>
+								    <div class="col-sm-10" style="width: 79.333%">
+								      <input type="text" class="form-control" id="contactInformation1" name="contactInformation" placeholder="">
+								    </div>
+								  </div>
+								  
+								  <div class="form-group">
+								    <div class="col-sm-offset-2 col-sm-10" style="width: 82%">
+								       <input type="text" style="display:none" id="staffId1" name="staffId">
+								    	<button type="submit" class="btn btn-default" style="float: right;" data-dismiss="modal">取消</button>
+								      	<button type="button" id="xiugaigo" class="btn btn-default btn1" style="float: right;margin-right: 10px; color: #fff;">确定</button>
+								      
+								    </div>
+
+								  </div>
+							</form>
+                                
+                        </div>
+                    <div class="modal-footer"></div>
+                </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+
+
+
+
+<!-- delete -->
+
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >  
+    <div class="modal-dialog" role="document">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                    <span aria-hidden="true">×</span>  
+                </button>  
+                <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-exclamation-sign" style="font-size: 20px;color: red; vertical-align: top;"></i>&nbsp提示</h4>  
+            </div>  
+            <div class="modal-body">  
+                <p>您确定要删除吗？如果删除则会删除该类型下的所有项目</p>  
+            </div>  
+            <div class="modal-footer footer2">  
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>  
+                <button type="button" class="btn btn-primary" id="delete">删除</button>  
+            </div>  
+        </div>  
+    </div>  
+  </div>
+
+<!-- delete -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+    <div class="modal-dialog" role="document">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                    <span aria-hidden="true">×</span>  
+                </button>  
+                <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-exclamation-sign" style="font-size: 20px;color: red; vertical-align: top;"></i>&nbsp提示</h4>  
+            </div>  
+            <div class="modal-body">  
+                <p>您确定要删除吗？</p>  
+            </div>  
+            <div class="modal-footer footer2">  
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>  
+                <button type="button" id="deyo" class="btn btn-primary">删除</button>  
+            </div>  
+        </div>  
+    </div>  
+</div>  
+		
+
+
+</div><!-- main-body结束 -->
+
+
+
+<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/power/zy-xx.js"></script>
+</body>
+</html>

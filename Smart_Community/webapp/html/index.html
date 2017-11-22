@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中国领先的绿色科技社区服务运营商</title>
+	<link rel="icon" href="/img/toubu.png" >
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 头部开始 -->
+
+<!-- 	<nav class="navbar navbar-default" id="header"> -->
+<!-- 	  <div class="container-fluid"> -->
+<!-- 	    <div class="navbar-header"> -->
+<!-- 	      <a class="navbar-brand" href="#"> -->
+<!-- 	        <img alt="Brand" src="/img/login-logo.png"> -->
+<!-- 	      </a> -->
+<!-- 	    </div> -->
+<!-- 	    <p class="navbar-text navbar-right">当代MOMA科技社区管理系统 <a href="#" class="navbar-link">欢迎您 ,  -->
+<!-- 	           <@shiro.user>  -->
+<!--                         <@shiro.principal/> -->
+<!--                </@shiro.user> -->
+<!--         <span class="caret"></span></a> -->
+<!--           <ul class="dropdown-menu"> -->
+<!--             <li><a href="#">退出登录</a></li> -->
+           
+            
+<!--           </ul> -->
+<!--         </li> -->
+<!--       </ul> -->
+     
+<!-- 	  </div> -->
+<!-- 	</nav> -->
+	
+		<nav class="navbar navbar-default" id="header">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/homepage/index">
+	        <img alt="Brand" src="/img/login-logo.png">
+	      </a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right;">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+        <li><a href="/homepage/index">当代MOMA科技社区管理系统</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">欢迎您 ,
+          	   <@shiro.user> 
+                        <@shiro.principal/>
+               </@shiro.user>
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/user/logout">退出登录</a></li>
+           
+            
+          </ul>
+        </li>
+      </ul>
+     
+        </div>
+	    <!-- <p class="navbar-text navbar-right">当代MOMA科技社区管理系统 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">欢迎您 , 管理员 <i class="glyphicon glyphicon-chevron-down"></i></a></p> -->
+	  </div>
+	</nav>
+
+<!-- 头部结束 -->
+
+<!-- 主体开始 -->
+
+	<div class="main row" id="main">
+
+	<!-- 主体左侧菜单开始 -->
+
+		<div class="left col-md-2">
+			<div class="panel-group table-responsive" role="tablist">
+                <div class="panel panel-primary leftMenu">
+                <div class="panel-heading1"  >
+                        <h4 class="panel-title">
+                            <a href="/homepage/pandect" target="main-body"><i class="glyphicon glyphicon-home"></i>项目总览</a>
+                            
+                        </h4>
+                    </div>
+                    <!-- 利用data-target指定要折叠的分组列表 -->
+                     <div class="panel-heading" id="collapseListGroupHeading1" data-toggle="collapse" data-target="#collapseListGroup1" role="tab" >
+                        <h4 class="panel-title">
+                            <a href="/homepage/operation" target="main-body"><i class="glyphicon glyphicon-adjust"></i>科技能源</a>
+                            <span class="glyphicon glyphicon-chevron-down right"></span>
+                        </h4>
+                    </div>
+                    <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+                    <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <!-- 利用data-target指定URL -->
+                           
+                                <a href="/homepage/operation" target="main-body"><span class=""></span>系统运行</a>
+                         
+                          </li>
+                          <li class="list-group-item">
+
+                                <a href="/homepage/nenghaoHome" target="main-body"><span class=""></span>能耗统计</a>
+                            
+                          </li>
+                          <li class="list-group-item">
+                            
+                                <a href="/homepage/shebei" target="main-body"><span class=""></span>设备台账</a>
+                            
+                          </li>
+                          <li class="list-group-item">
+                            
+                                <a href="/homepage/xmGuanli" target="main-body"><span class=""></span>项目管理</a>
+                           
+                          </li>
+                        
+                        </ul>
+                    </div>
+                </div><!--panel end-->
+
+                <div class="panel panel-primary leftMenu">
+                    <div class="panel-heading" id="collapseListGroupHeading2" data-toggle="collapse" data-target="#collapseListGroup2" role="tab" >
+                        <h4 class="panel-title">
+                        <i class="glyphicon glyphicon-object-align-bottom"></i>
+                            科技楼宇
+                            <span class="glyphicon glyphicon-chevron-down right"></span>
+                        </h4>
+                    </div>
+                    <div id="collapseListGroup2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            
+                                <a href="./1-1.html" target="main-body"><span class=""></span>智能门禁</a>
+                          
+                          </li>
+                          <li class="list-group-item">
+                            
+                                <a href="./1-1.html" target="main-body"><span class=""></span>车场运维</a>
+                         
+                          </li>
+                          <li class="list-group-item">
+                           
+                                <a href="./1-1.html" target="main-body"><span class=""></span>电梯系统</a>
+                         
+                          </li>
+                          <li class="list-group-item">
+                            
+                                <a href="./1-1.html" target="main-body"><span class=""></span>电力系统</a>
+                            
+                          </li>
+                        </ul>
+                    </div>
+                </div> 
+                <div class="panel panel-primary leftMenu">
+                    <div class="panel-heading" id="collapseListGroupHeading3" data-toggle="collapse" data-target="#collapseListGroup3" role="tab" >
+                        <h4 class="panel-title">
+                        <i class="glyphicon glyphicon-bed"></i>
+                            科技家居
+                            <span class="glyphicon glyphicon-chevron-down right"></span>
+                        </h4>
+                    </div>
+                    <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            
+                                <a href="./1-1.html" target="main-body"><span class=""></span>室内环境</a>
+                          
+                          </li>
+                          <li class="list-group-item">
+                            
+                                <a href="./1-1.html" target="main-body"><span class=""></span>智能设备</a>
+                         
+                          </li>
+                          
+                        </ul>
+                    </div>
+                </div> 
+				
+
+            </div>
+		</div>
+
+	<!-- 主体左侧菜单结束 -->
+
+	<!-- 主体右侧内容开始 -->
+
+		<div class="right col-md-10">
+			<iframe class="" style="border:0" width="100%" height="100%" src="/homepage/pandect" name="main-body">
+				
+			</iframe>
+		</div>
+
+	<!-- 主体右侧内容结束 -->
+
+	</div>
+<!-- 主体结束 -->
+<script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/homepage.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/echarts.js"></script>
+	<script type="text/javascript" src="../js/macarons.js"></script>
+<!-- <script type="text/javascript" src="/js/now.js"></script> -->
+</head>
+<body onload="showTime()">
+
+		<div class="homepage">
+
+			<div class="main_nav">
+				<p class="navbar-text navbar-right"><a href="#"  class="navbar-link1">控制面板</a>
+				 <a id="result" href="#" class="navbar-link"></a>
+				</p>
+				
+				<a class="navbar-brand" href="#">
+				<i class="glyphicon glyphicon-home"></i>
+							项目总览</a>
+			</div>
+
+<div class="main-body">
+			<div class="main_1">
+				<div class="row">
+					  <div class="col-xs-6 col-md-3">
+					    <div class="thumbnail" style=" background-color: #5cc0c0;">
+					    	<div class="ll" style="width: 50px; height: 50px;float: left; margin-top: 15px; margin-left: 10px;">
+					    		<img src="../img/xm1.png">
+					    	</div>
+					    	
+					      		<p class="ppp">已接入科技能源系统面积</p>
+					      		<h4 class="h4">278.6万平方米</h4>
+					      	
+					    </div>
+					  </div>
+				  <div class="col-xs-6 col-md-3">
+					    <div class="thumbnail" style=" background-color: #e16d75;">
+					    	<div class="ll" style="width: 50px; height: 50px;float: left; margin-top: 15px; margin-left: 10px;">
+					    		<img src="../img/xm2.png">
+					    	</div>
+					      <p class="ppp">已接入科技车场系统面积</p>
+					      <h4 class="h4">278.6万平方米</h4>
+					    </div>
+					  </div>
+					  <div class="col-xs-6 col-md-3">
+					    <div class="thumbnail" style=" background-color: #6dbbed;">
+					    	<div class="ll" style="width: 50px; height: 50px;float: left; margin-top: 15px; margin-left: 10px;">
+					    		<img src="../img/xm3.png" style="width: 45px; height: 45px;">
+					    	</div>
+					      <p class="ppp">已接入科技门禁系统面积</p>
+					      <h4 class="h4">278.6万平方米</h4>
+					    </div>
+					  </div>
+					  <div class="col-xs-6 col-md-3">
+					    <div class="thumbnail" style=" background-color: #beaedf;">
+					    	<div class="ll" style="width: 50px; height: 50px;float: left; margin-top: 15px; margin-left: 10px;">
+					    		<img src="../img/xm4.png" style="width: 45px; height: 45px;">
+					    	</div>
+					      <p class="ppp">已接入科技社区住户数</p>
+					      <h4 class="h4">278.6万平方米</h4>
+					    </div>
+					  </div>
+				</div>
+			</div>
+
+
+			<div class="row">
+			  <div class="col-md-4 mode1" style="width:66.5%;height: auto;">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">科技能源系统能耗量</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						    <div class='chart-select'>
+						    	<div class="col-md-3" style="width: 12%;">
+						    		<select class="form-control select-option" disabled="disabled">
+									  <option>万国城</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3" style="width: 12%;">
+						    		<select class="form-control select-option" disabled="disabled">
+									  <option>安徽区域</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3" style="width: 12%;">
+						    	<select class="form-control select-option" disabled="disabled">
+									  <option>合肥万国城</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3" style="width: 12%;">
+						    		<select class="form-control select-option" disabled="disabled">
+									  <option>24小时内</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+					    	</div>
+					    	<div id="mode1chatrs" class="charts" style="width: 90%; float: left;"></div>
+					    	
+					    </div>
+					  </div>
+					</div>
+			  </div>
+			  
+
+			  <!-- <div class="col-md-4 mode1">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">科技能源系统同比环比能耗量</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<div class='chart-select'>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有类型</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有项目</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    	<select class="form-control select-option">
+									  <option>区域全部</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>24小时内</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+					    	</div>
+					    	<div id="mode2chatrs" class="charts"></div>
+					    </div>
+					  </div>
+					</div>
+			  </div> -->
+
+			  <div class="col-md-4 mode1">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">科技社区APP用户注册量</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<!-- <div class='chart-select'>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有类型</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有项目</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    	<select class="form-control select-option">
+									  <option>区域全部</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>24小时内</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+					    	</div> -->
+					    	<div id="mode3chatrs" class="charts" style="margin-bottom: 15px; margin-top: 20px;"></div>
+					    </div>
+					  </div>
+					</div>
+			  </div>
+			</div>
+
+			<div class="row chart-row">
+			  <div class="col-md-4 mode1">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">科技车场收入日资产</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<div class='chart-select'>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有类型</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有项目</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    	<select class="form-control select-option">
+									  <option>区域全部</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>24小时内</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+					    	</div>
+					    	<div id="mode4chatrs" class="charts"></div>
+					    </div>
+					  </div>
+					</div>
+			  </div>
+			  
+
+			  <div class="col-md-4 mode1">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">科技能源系统同比环比能耗量</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<div class='chart-select'>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有类型</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有项目</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    	<select class="form-control select-option">
+									  <option>区域全部</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>24小时内</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+					    	</div>
+					    	<div id="mode5chatrs" class="charts"></div>
+					    </div>
+					  </div>
+					</div>
+			  </div>
+
+			  <div class="col-md-4 mode1">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">科技门禁系统异常告警</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<div class='chart-select'>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有类型</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>所有项目</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3">
+						    	<select class="form-control select-option">
+									  <option>区域全部</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3">
+						    		<select class="form-control select-option">
+									  <option>24小时内</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+						    	</div>
+					    	</div>
+					    	<div id="mode6chatrs" class="charts">
+								<table class="table">
+									<tr class="info">
+										<td>当代MOMA</td> <td>11:30</td> <td>3#楼北门</td> <td class="important-info">锁定异常人员</td>
+									</tr>
+
+									<tr class="">
+										<td>太原2期</td> <td>11:30</td> <td>3#楼北门</td> <td class="important-info">门禁常开</td>
+									</tr>
+
+									<tr class="info">
+										<td>太原2期</td> <td>11:30</td> <td>3#楼北门</td> <td class="important-info">门禁损坏</td>
+									</tr>
+
+									<tr class="">
+										<td>太原2期</td> <td>11:30</td> <td>3#楼北门</td> <td class="important-info">故障异常</td>
+									</tr>
+
+									<tr class="info">
+										<td>太原2期</td> <td>11:30</td> <td>3#楼北门</td> <td class="important-info">故障异常</td>
+									</tr>
+								</table>
+					    	</div>
+					    </div>
+					  </div>
+					</div>
+			  </div>
+			</div>
+</div>
+
+
+
+
+
+
+		</div>
+		<script type="text/javascript" src="../js/homepage.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="/layer/layer.js"></script>
+</head>
+<body>
+
+          <form id="toform">
+               <div class="form-group" style="">
+					    
+				<input type="file" id="upFiles" name="upFiles" style="width: 189px;height: 40px;padding-left: 25px; padding-top: 20px;" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+				    
+			   </div>
+	      </form>
+			   <button type="button" id="bun">开始</button>
+
+<script type="text/javascript">
+
+      $("#bun").click(function(){
+    	  
+    	  var formData = new FormData($("#toform")[0]);
+    	  $.ajax({
+  			type:"POST",
+  			url:"/powerLink/daoruExcel",
+  			data:formData,
+  			async: false,  
+  		    cache: false,  
+  		    contentType: false,  
+  		    processData: false,
+              beforeSend: function () {
+              	layer.msg('正在导入,请稍后', {
+            		  icon: 16
+            		  ,shade: 1
+            		});
+               },
+  			success:function(msg){
+  				if(msg.code == 0){
+  					layer.msg('导入成功', {
+  						  icon: 6,
+  						  time: 1000 
+  						}, function(){
+  							layer.msg("成功", {icon: 6});
+  						}); 
+  				}else{
+  					alert(msg.message);
+  					layer.msg(msg.message, {icon: 5});
+  				}
+  			},
+  			error:function(msg){
+  				layer.msg('服务异常,请稍后再试', {icon: 5});
+  			},complete:function(){
+              	layer.closeAll();
+              }  
+  	     });
+      });
+
+</script>
+</body>
+</html>

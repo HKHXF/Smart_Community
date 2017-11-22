@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/tx-bg.css">
+	<link rel="stylesheet" type="text/css" href="../../js/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../layer/layer.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/public.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right"> 
+				<a href="#" id="result" class="navbar-link"></a>
+				</p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span>能耗统计 > </span><span style="color: #5cc0c0">填写报表</span></a>
+			</div>
+
+
+		<div class="main-body">
+				
+<form name="toform" id="toform">
+				<div class="main_r">
+						<div class="main_left_nav" style=" height:40px;background-color: #fbfbfb;border-bottom: 1px solid #ddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">填写能耗报表
+						</div>
+							<div class="main_rc">
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label" style="width: 10%"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp区域名称:</label>
+								    <div class="col-sm-10">
+								      <div class="col-lg-6">
+							                <div class="input-group">
+<!-- 							                <input type="text" class="form-control"  id="regionId" name="regionId" style="display:none"> -->
+<!-- 							                    <input type="text" class="form-control" placeholder="选择区域" id="regionName"> -->
+<!-- 							                    <div class="input-group-btn"> -->
+<!-- 							                        <button type="button" class="btn btn-default  -->
+<!-- 							                        dropdown-toggle" data-toggle="dropdown"> -->
+<!-- 							                            <span class="caret"></span> -->
+<!-- 							                        </button> -->
+<!-- 							                        <ul class="dropdown-menu pull-right" id="toquyu"> -->
+							                        
+<!-- 							                        </ul> -->
+<!-- 							                    </div>/btn-group -->
+													  <select class="form-control" check-type="selectOne" check-tip="请选择区域名称！" id="toquyu" name="regionId" placeholder="选择区域">
+													    <option selected="" value="" style="width: 11%">
+                                                          区域名称
+                                                        </option>
+                                                        
+                                                    </select>
+							                </div><!-- /input-group -->
+							            </div><!-- /.col-lg-6 -->
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label" style="width: 10%"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp项目名称:</label>
+								    <div class="col-sm-10">
+								      <div class="col-lg-6">
+							                <div class="input-group">
+<!-- 							                <input type="text" class="form-control"  id="projectId" name="projectId" style="display:none"> -->
+<!-- 							                    <input type="text" class="form-control" placeholder="选择项目" id="projectName"> -->
+<!-- 							                    <div class="input-group-btn"> -->
+<!-- 							                        <button type="button" class="btn btn-default  -->
+<!-- 							                        dropdown-toggle" data-toggle="dropdown"> -->
+<!-- 							                            <span class="caret"></span> -->
+<!-- 							                        </button> -->
+<!-- 							                        <ul class="dropdown-menu pull-right" id="toxiangmu"> -->
+							                        
+<!-- 							                        </ul> -->
+<!-- 							                    </div>/btn-group -->
+                                                    <select class="form-control" id="toxiangmu" check-type="selectOne" check-tip="请选择项目名称！" name="projectId" placeholder="选择项目">
+													    <option selected="" value=""style="width: 11%">
+                                                        项目名称
+                                                        </option>
+                                                      
+                                                    </select>
+							                </div><!-- /input-group -->
+							            </div><!-- /.col-lg-6 -->
+								    </div>
+								  </div>  
+								  
+							</div>
+
+						<div class="main_con"> 
+							<div class="main_left_nav" style=" height:40px;background-color: #fbfbfb;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">日报时间：2017-11-13
+							</div>
+							<div class="main_rc2">
+							<p style="color: #5cc0c0; font-size: 15px;margin-left: 15px;">表底数</p>
+									<div class="form-group" style="margin-top: 20px;">
+								    <label class="col-sm-2 control-label">低区天棚1#热泵（2110/倍率80）:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="unitModel"  name="unitModel" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">低区天棚2#热泵（2117/倍率80）</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="factoryNumber"  name="factoryNumber" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">高区天棚新风3#热泵（3766/倍率200）:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="power"   name="power" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+								  
+
+								
+							</div>
+							<div class="main_rc3">
+							<p style="color: #5cc0c0; font-size: 15px;margin-left: 15px;">表底数</p>
+									<div class="form-group" style="margin-top: 20px;">
+								    <label class="col-sm-2 control-label">3#楼顶新风机组（2227/倍率1）:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="flow" name="flow" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">3#B1新风机组（2236/倍率1）:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="loopNumber"  name="loopNumber" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">4#楼顶新风机组（1269/倍率1）:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="temperatureRestriction"  name="temperatureRestriction" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+								  
+								  
+
+
+								
+							</div>
+							<div class="bnt" style="width:50%; margin-bottom: 20px;">
+								<button type="button" class="btn btn-info" id="baocun">提交</button>
+								<!-- 								<button type="button" class="btn btn-info dele" style="background-color: #ccc;color: #666;border: none;">取消</button> -->
+								<a href="/homepage/shebei" class="btn btn-info dele" style="background-color: #ccc;color: #666;border: none;">返回</a>
+							</div>
+						</div>
+
+						
+
+
+						</div>
+</form>
+
+				</div>	
+
+				
+			</div>
+
+
+
+		
+
+
+</div><!-- main-body结束 -->
+
+		
+
+<!-- 按钮触发模态框 -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 444px;margin: 0 auto;">
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="myModalLabel">
+                    项目类型<span><i class="glyphicon glyphicon-remove" data-dismiss="modal" style="float: right; color: #ccc"></i></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+  <div class="main">
+
+        
+
+    <div class="center_ll" style="width:180px;height:260px; float: left; border:1px solid #999;overflow:scroll;" >
+
+        <table id='table1' width="100%" border="0" cellspacing="0" cellpadding="0" >
+           
+          </table>
+
+        </div>
+        <div class="center_rr"style="width:190px;height:260px; float: right;">
+            <form class="form-horizontal" role="form">
+                <div class="form-group" style="width: 258px;">
+                    <label class="col-sm-2 control-label" style="width: 109px;margin-left: 106px;">当前类型名称:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="focusedInput" type="text" value="" style=" width: 100%; margin-left: 110px;">
+                </div>
+                </div>
+            </form>
+            <button type="button" id="update" class="btn btn-info" style="width: 127px;margin-left: 20px;height: 30px;">保存</button>
+            <button type="button" id="insert" class="btn btn-info" style="width: 127px;height: 30px;margin-left: 20px;color: #fff;border: none;margin-top: 20px;">添加</button>
+            <button type="button" id="del" class="btn btn-infodel "  style="width: 127px;height: 30px;margin-left: 20px;color: #fff;border: none;margin-top: 20px;">删除</button>
+        </div>  
+   
+
+    </div>
+            <div class="modal-footer">
+<!--                 <button type="button" class="btn btn-primary b-p" style="background-color: #5cc0c0; border-color: #5cc0c0;"> -->
+<!--                     确定 -->
+<!--                 </button> -->
+                
+                </button>
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+
+
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >  
+    <div class="modal-dialog" role="document">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                    <span aria-hidden="true">×</span>  
+                </button>  
+                <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-exclamation-sign" style="font-size: 20px;color: red; vertical-align: top;"></i>&nbsp提示</h4>  
+            </div>  
+            <div class="modal-body">  
+                <p>您确定要删除吗？如果删除则会删除该类型下的所有项目</p>  
+            </div>  
+            <div class="modal-footer footer2">  
+                <button type="button" class="btn btn-primary" id="delete">删除</button>  
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>  
+            </div>  
+        </div>  
+</div>  
+  </div>
+	</div>
+<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/power/shebei-xinzeng.js"></script>
+</body>
+</html>

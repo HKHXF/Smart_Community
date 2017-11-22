@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>智慧社区-能源项目</title>
+		<link rel="icon" href="/images/toubu.png" >
+		<script type="text/javascript" src="/js/jquery-3.2.1.js" ></script>
+	</head>
+	<body>
+	<span>
+	当前登录人： <@shiro.user> 
+                           <@shiro.principal/>
+               </@shiro.user>
+	</span>
+		<div>
+			添加能源项目
+		</div>
+		
+		<br />
+		<div>
+			<form id="toform">
+			项目名称：<input id="projectName" name="projectName" type="text" placeholder="请输入项目名称"></input><br/>
+			项目地址：<input id="projectAddress" name="projectAddress" type="text" placeholder="请输入项目地址"></input><br/>
+			项目区域：<input id="projectRegion" name="projectRegion" type="text" placeholder="请输入项目区域"></input><br/>
+			项目面积：<input id="projectArea" name="projectArea" type="text" placeholder="请输入项目面积"></input><br/>
+			项目类型：<input id="projectType" name="projectType" type="text" placeholder="请输入项目类型"></input><br/>
+			主机形式：<input id="hostOnly" name="hostOnly" type="text" placeholder="请输入主机形式"></input><br/>
+			设计冷负荷：<input id="designCoolingLoadLoad" name="designCoolingLoadLoad" type="text" placeholder="请输入设计冷负荷"></input><br/>
+			设计热负荷：<input id="designHeatingLoad" name="designHeatingLoad" type="text" placeholder="请输入设计热负荷"></input><br/>
+			项目简介：<input id="projectDetails" name="projectDetails" type="text" placeholder="请输入项目简介"></input><br/>
+			</form>
+			<br />
+            <button type="button" id="but">提交</button>
+		</div>
+		
+		
+		<script>
+    $("#but").click(function(){
+	var formData = $("#toform").serialize();
+	$.ajax({
+		type:"post",
+		url:"/PowerProjectJson/insert",
+		data:formData,
+		dataType:"json",
+		async:false,
+		success:function(msg){
+			if(msg.code == 0){
+				alert("新增成功");
+				location.href="/user/index";
+			}else{
+				alert(msg.message);
+			}
+		},
+		error:function(msg){
+			alert("服务异常!!!");
+		}
+     });
+   })
+		</script>
+	</body>
+</html>

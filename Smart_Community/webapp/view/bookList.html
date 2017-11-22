@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户列表</title>
+<script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<span style="position:relative;">
+    <@shiro.user>  
+    欢迎[<@shiro.principal/>]登录，<a href="/user/logout">退出</a>  
+    </@shiro.user> 
+</span>
+<br>
+<div>
+当前用户ID：${user}
+</div>
+--------数据表格-------&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" id="shanchu">删除</button>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" id="xiugai">修改</button>
+<br>
+				<#if PageInfo.list ??>
+				
+						  <table align="center" width="95%" border="1" cellpadding="2" cellspacing="1" >
+								   
+												  <tr>
+												    <th>编号</th>
+												    <th>书名</th>
+												    <th>价格</th>
+												    <th>创建时间</th>
+												  </tr>
+								   <#list PageInfo.list as item>
+												  <tr>
+												    <td><input type="checkbox" value="${item.id}" name="chk_uid">${item_index+1}</td> 
+												    <td>${item.name}</td>
+												    <td>${item.plice}</td>
+												    <td>${item.crestTime}</td>
+												  </tr>
+								   </#list>
+						 </table>
+				
+				</#if>
+<div>
+<br>
+<button type="button" id="top" value="1">首页</button>
+<#if PageInfo.pageNum lte 1>
+<button type="button" id="start" value="${PageInfo.pageNum}" disabled="true">上一页</button>
+<#else>
+<button type="button" id="start" value="${PageInfo.pageNum}" >上一页</button>
+</#if>
+
+<#if PageInfo.pageNum gte PageInfo.pages>
+<button type="button" id="next" value="${PageInfo.pageNum}" disabled="true">下一页</button>
+<#else>
+<button type="button" id="next" value="${PageInfo.pageNum}">下一页</button>
+</#if>
+<button type="button" id="end" value="${PageInfo.pages}">末页</button>
+	
+当前第[${PageInfo.pageNum}]页
+共[${PageInfo.pages}]页
+共[${PageInfo.total}]条数据	
+
+<br>
+<br>
+ <@shiro.hasRole name="user">
+【测试管理员】用户能看到
+</@shiro.hasRole>
+
+ <@shiro.hasRole name="test">
+【测试查勘员-和-大众】用户能看到
+</@shiro.hasRole>
+
+<script type="text/javascript">
+
+    //首页
+    $("#top").click(function(){
+    	var top = $("#top").val();
+    	window.location.href="/book/SelectMohuFreemarker?page="+top;
+    })
+    
+    //上一页
+    $("#start").click(function(){
+    	var start = Number($("#start").val())-1;
+    	window.location.href="/book/SelectMohuFreemarker?page="+start;
+    })
+    
+    //下一页
+     $("#next").click(function(){
+    	 var next = Number($("#next").val())+1;
+    	window.location.href="/book/SelectMohuFreemarker?page="+next;
+    })
+    
+    //末页
+    $("#end").click(function(){
+    	var end = $("#end").val();
+    	window.location.href="/book/SelectMohuFreemarker?page="+end;
+    })
+    
+    
+    
+    $("#shanchu").click(function(){
+    	
+    	var fruit = new Array();
+    	var chackBox = $("input[name='chk_uid']:checked").val();
+    	if(chackBox == null || chackBox == ""){
+    		alert("请选择要删除的选项!!!");
+    	}else{
+    		$("input:checkbox[name='chk_uid']:checked").each(function() {
+    			fruit.push($(this).val()) ;
+    		});
+    		alert(fruit);
+//     		var fruitto = JSON.stringify(fruit);
+    		$.ajax({
+    			type:"post",
+    			url:"/book/deleteUser",
+    			data:{'fruit':JSON.stringify(fruit)},
+    			dataType:"json",
+    			async:false,
+    			success:function(msg){
+    				alert(msg);
+    				if(msg == 0){
+    					alert("删除成功");
+    					window.location.href="/book/SelectMohuFreemarker";
+    				}else{
+    					alert("服务异常!!");
+    				}
+    			}
+    	     });
+    	}
+    });
+    
+    
+    
+$("#xiugai").click(function(){
+    	
+    	var fruit = new Array();
+    	var chackBox = $("input[name='chk_uid']:checked").val();
+    	if(chackBox == null || chackBox == ""){
+    		alert("请选择要删除的选项!!!");
+    	}else if(chackBox.length > 1){
+    		alert("一次只能修改一个!!!");
+//     		$("input:checkbox[name='chk_uid']:checked").each(function() {
+//     			fruit.push($(this).val()) ;
+//     		});
+//     		alert(fruit);
+// //     		var fruitto = JSON.stringify(fruit);
+//     		$.ajax({
+//     			type:"post",
+//     			url:"/user/deleteUser",
+//     			data:{'fruit':JSON.stringify(fruit)},
+//     			dataType:"json",
+//     			async:false,
+//     			success:function(msg){
+//     				alert(msg);
+//     				if(msg == 0){
+//     					alert("删除成功");
+//     					window.location.href="/user/SelectMohuFreemarker";
+//     				}else{
+//     					alert("服务异常!!");
+//     				}
+//     			}
+//     	     });
+    	}else{
+    		$.ajax({
+    			type:"post",
+    			url:"/user/deleteUser",
+    			data:{'id':chackBox},
+    			dataType:"json",
+    			async:false,
+    			success:function(msg){
+    				alert(msg);
+    				if(msg == 0){
+    					alert("删除成功");
+    					window.location.href="/user/SelectMohuFreemarker";
+    				}else{
+    					alert("服务异常!!");
+    				}
+    			}
+    	     });
+    	}
+    });
+    
+</script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+        <beans xmlns="http://www.springframework.org/schema/beans"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">  
+        <!-- MyBatis使用ehcache缓存 start -->  
+    <bean id="ehCacheManager"  
+        class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">  
+        <property name="configLocation" value="classpath:ehcache-shiro.xml" />  
+        <property name="shared" value="true"></property> <!-- 这里是关键！！！没有必错 -->   
+    </bean>  
+    <!-- end MyBatis使用ehcache缓存 -->  
+
+    <!-- 缓存管理器 使用Ehcache实现 -->  
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
+        <property name="cacheManager" ref="ehCacheManager" />  
+    </bean> 
+     
+			<!-- 配置自定义Realm --> 
+			<bean id="myRealm" class="com.firstCapacity.business.user.realm.MyRealm"/> 
+			
+<!-- 			<bean id="roleOR" class="com.yale.app.security.OneRoleAuthorizationFilter"/>  -->
+			<!-- 安全管理器 --> 
+			<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager"> 
+			<property name="realm" ref="myRealm"/> 
+			</bean> <!-- Shiro过滤器 核心--> 
+			<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean"> 
+			<!-- Shiro的核心安全接口,这个属性是必须的 --> 
+			<property name="securityManager" ref="securityManager"/> 
+			 <!-- 配置登陆页面 -->  
+	        <property name="loginUrl" value="/login.html"/>  
+	        <!-- 登陆成功后的一面 -->  
+	        <property name="successUrl" value="/view/userList.html"/>  
+			<!-- 权限认证失败，则跳转到指定页面 --> 
+			<property name="unauthorizedUrl" value="/login.html"/> 
+			<!-- Shiro连接约束配置,即过滤链的定义 --> 
+				<property name="filterChainDefinitions"> 
+						<value> 
+						<!--anon 表示匿名访问，不需要认证以及授权--> 
+<!-- 						/loginAdmin=anon  -->
+						<!--authc表示需要认证 没有进行身份认证是不能进行访问的-->
+<!-- 						/assets/** = anon -->
+                        /video/** = anon
+						/img/** = anon
+						/images/** = anon
+						/layer/** = anon
+						/js/** = anon
+                        /css/** = anon
+                        /images/** = anon
+                        /fonts/** = anon 
+						/login.html = anon
+						/login.jsp = anon
+						/userjson/loginToJson=anon
+                        /**=authc
+<!--                         /**=anon -->
+						</value> 
+				</property> 
+			</bean> 
+			<!-- 保证实现了Shiro内部lifecycle函数的bean执行 --> 
+			<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/> 
+			<!-- 开启Shiro注解 --> 
+			<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+			          depends-on="lifecycleBeanPostProcessor"/> 
+			          <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"> 
+			          <property name="securityManager" ref="securityManager"/> 
+			</bean>
+       </beans>  

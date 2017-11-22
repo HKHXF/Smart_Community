@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+                        http://www.springframework.org/schema/beans/spring-beans.xsd 
+                        http://www.springframework.org/schema/tx  
+                        http://www.springframework.org/schema/tx/spring-tx.xsd     
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context.xsd   
+                        http://www.springframework.org/schema/aop  
+                        http://www.springframework.org/schema/aop/spring-aop.xsd   
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">  
+    <!-- 自动扫描 -->  
+    <context:component-scan base-package="com.firstCapacity" />  
+    
+        <!-- AOP自动代理功能 -->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+    
+    
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+    <property name="locations"> <!-- PropertyPlaceholderConfigurer类中有个locations属性，接收的是一个数组，即我们可以在下面配好多个properties文件 -->  
+        <array>  
+            <value>classpath:jdbc.properties</value>
+            <value>classpath:redis.properties</value>
+        </array>  
+    </property>  
+</bean>  
+    
+  
+    <bean id="dataSourceA"   
+        class="org.apache.commons.dbcp.BasicDataSource">  
+        <property name="driverClassName" value="${A.driver}"/>  
+        <property name="url" value="${A.url}"/>  
+        <property name="username" value="${A.username}"/>  
+        <property name="password" value="${A.password}"/>
+         <!-- 初始化连接大小 -->  
+        <property name="initialSize" value="${jdbc.initialSize}"></property>  
+        <!-- 连接池最大数量 -->  
+        <property name="maxActive" value="${jdbc.maxActive}"></property>  
+        <!-- 连接池最大空闲 -->  
+        <property name="maxIdle" value="${jdbc.maxIdle}"></property>  
+        <!-- 连接池最小空闲 -->  
+        <property name="minIdle" value="${jdbc.minIdle}"></property>  
+        <!-- 获取连接最大等待时间 -->  
+        <property name="maxWait" value="${jdbc.maxWait}"></property> 
+        
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --> 
+        <property name="minEvictableIdleTimeMillis" value="300000" /> 
+        <property name="validationQuery" value="SELECT 'x'" /> 
+        <property name="testWhileIdle" value="true" /> 
+        <property name="testOnBorrow" value="false" /> 
+        <property name="testOnReturn" value="false" />   
+    </bean>
+    
+      
+    <bean id="dataSourceB"   
+        class="org.apache.commons.dbcp.BasicDataSource">  
+        <property name="driverClassName" value="${B.driver}"/>  
+        <property name="url" value="${B.url}"/>  
+        <property name="username" value="${B.username}"/>  
+        <property name="password" value="${B.password}"/> 
+         <!-- 初始化连接大小 -->  
+        <property name="initialSize" value="${jdbc.initialSize}"></property>  
+        <!-- 连接池最大数量 -->  
+        <property name="maxActive" value="${jdbc.maxActive}"></property>  
+        <!-- 连接池最大空闲 -->  
+        <property name="maxIdle" value="${jdbc.maxIdle}"></property>  
+        <!-- 连接池最小空闲 -->  
+        <property name="minIdle" value="${jdbc.minIdle}"></property>  
+        <!-- 获取连接最大等待时间 -->  
+        <property name="maxWait" value="${jdbc.maxWait}"></property> 
+        
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --> 
+        <property name="minEvictableIdleTimeMillis" value="300000" /> 
+        <property name="validationQuery" value="SELECT 'x'" /> 
+        <property name="testWhileIdle" value="true" /> 
+        <property name="testOnBorrow" value="false" /> 
+        <property name="testOnReturn" value="false" />  
+    </bean>  
+    
+    
+<!--  双数据源 配合 -->
+ <bean id="dataSource" class="com.firstCapacity.util.aop.ChooseDataSource">
+  <property name="defaultTargetDataSource" ref="dataSourceA"/>
+  <property name="targetDataSources">
+   <map>
+    <entry key="A" value-ref="dataSourceA"/>
+    <entry key="B" value-ref="dataSourceB"/>
+   </map>
+  </property>
+ </bean>
+
+  
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />
+        <!-- 自动扫描mapping.xml文件 -->  
+        <property name="mapperLocations" value="classpath:com/firstCapacity/business/**/mapper/*.xml"></property>
+        <!-- mybatis配置文件 -->
+        <property name="configLocation" value="classpath:spring/mybatis.xml"></property>
+        <!-- 插件分页 --> 
+	    <property name="plugins">
+	    <array>
+<!-- 	      <bean class="com.github.pagehelper.PageHelper"> -->
+           <bean class="com.firstCapacity.util.PageHelper">
+	        <property name="properties">
+	          <value>
+	            　　 helperDialect=mysql
+　　　　　　　　reasonable=true
+　　　　　　　　supportMethodsArguments=true
+　　　　　　　　params=count=countSql
+　　　　　　　　autoRuntimeDialect=true
+	          </value>
+	        </property>
+	      </bean>
+	    </array>
+	  </property>
+    </bean>  
+  
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="com.firstCapacity.business.**.mapper" />  
+    </bean> 
+     
+     
+     
+ <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx 事务 -->
+<!--  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  -->
+<!--   <property name="dataSource" ref="dataSource" /> -->
+<!--  </bean> -->
+ <!-- 使用annotation定义事务 -->
+<!--  <tx:annotation-driven transaction-manager="transactionManager" /> -->
+    <!-- 事务相关控制配置：例如配置事务的传播机制 -->  
+    
+
+<!--         <tx:advice id="iccardTxAdvice" transaction-manager="transactionManager"  >   -->
+<!--             <tx:attributes>   -->
+<!--               <tx:method name="delete*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" no-rollback-for="java.lang.RuntimeException"/>   -->
+<!--               <tx:method name="insert*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.RuntimeException" />   -->
+<!--               <tx:method name="add*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.RuntimeException" />   -->
+<!--               <tx:method name="create*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.RuntimeException" />   -->
+<!--               <tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" />   -->
+                
+<!--               <tx:method name="find*" propagation="SUPPORTS" />   -->
+<!--               <tx:method name="get*" propagation="SUPPORTS" />   -->
+<!--               <tx:method name="select*" propagation="SUPPORTS" />   -->
+<!--               <tx:method name="query*" propagation="SUPPORTS" />   -->
+<!--             </tx:attributes>   -->
+<!--         </tx:advice>   -->
+          
+        <!-- 把事务控制在service层 -->  
+<!--         <aop:config>       -->
+<!--             <aop:pointcut id="iccardTerm" expression="execution(* com.firstCapacity.business.*.service..*(..))" />   -->
+<!--             <aop:advisor pointcut-ref="iccardTerm" advice-ref="iccardTxAdvice"  />   -->
+<!--         </aop:config>  -->
+
+      
+		<!-- redis数据源 -->
+		<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
+		    <property name="maxIdle" value="${redis.maxIdle}" />  
+		    <property name="maxTotal" value="${redis.maxActive}" />  
+		    <property name="maxWaitMillis" value="${redis.maxWait}" />  
+		    <property name="testOnBorrow" value="${redis.testOnBorrow}" />  
+		</bean>
+		<!-- Spring-redis连接池管理工厂 -->
+		<bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"  
+		    p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}"  p:pool-config-ref="poolConfig"/>  
+		<!-- 使用中间类解决RedisCache.jedisConnectionFactory的静态注入，从而使MyBatis实现第三方缓存 -->
+		<bean id="redisCacheTransfer" class="com.firstCapacity.util.Redis.RedisCacheTransfer">
+		    <property name="jedisConnectionFactory" ref="jedisConnectionFactory"/>
+		</bean>
+      
+      
+      
+
+
+      <import resource="spring-shiro.xml"/>
+    
+			
+
+</beans>  

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>操作Freemarker页面</title>
+<script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+<div style="text-align:center">
+<strong >HELLO</strong>
+</div>
+<br>
+<div style="text-align:center">
+<button type="button" id="but">点我!</button> 
+</div>
+
+<script type="text/javascript">
+$("#but").click(function(){
+	
+	alert("点击了");
+	
+	window.location.href="/user/SelectMohuFreemarker?userName=h";
+	
+// 	$.ajax({
+//         url:"/user/SelectMohuFreemarker",
+//         type:"post",
+//         data:{userName:"h"},
+//         success:function(data){
+// //             window.clearInterval(timer);
+// //             console.log("over..");
+
+//         alert("success");
+//         },
+//         error:function(e){
+//             alert("错误！！");
+// //             window.clearInterval(timer);
+//         }
+//     });       
+	
+})
+</script>
+</body>
+</html>

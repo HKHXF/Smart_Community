@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/operation.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">  
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right"> 
+				<a href="#" id="result" class="navbar-link"></a>
+				</p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span style="color: #5cc0c0">项目选择</span></a>
+			</div>
+
+
+<div class="main-body">
+	<div class="main_left">
+	<div class="panel-heading" style="background-color: #fbfbfb;border-bottom: 1px solid #dddddd;"> 
+					    <h3 class="panel-title">项目选择</h3>
+					 </div>
+		<div class="main_left_l">
+					
+			<div class="row">
+			    <div class="col-sm-6 col-md-3" style=" margin-top:60px;">
+			         <div class="thumbnail" style="overflow: hidden;margin-bottom:10px;">
+			           
+			            <img src="/img/right_1.png" 
+			             alt="暂无图片..." class="data-img" style="height:247px;">
+			              
+			             <input type="text" style="display:none" id="id" />
+			             <input type="text" style="display:none" id="name" />
+			             <input type="text" style="display:none" id="runtime" />
+			             <input type="text" style="display:none" id="tableName" />
+			            
+			            
+			         </div>
+			         <div class="caption">
+			                
+			                <p style="margin: 0 auto;width: 108px;height: 30px;">
+							<button type="button" class="btn btn-primary" id="bun">进入项目</button>  
+			                 
+			                </p>
+			                
+			            </div>
+			    </div>
+			    
+			    
+			</div>
+		</div>
+
+		<div class="main_left_r">
+				<div class="main_left_r1">
+				
+				 
+				  
+					<h2 class="data-title">长沙3.4期万国城</h2>
+						<textarea class="data-content" style="width:100%;height:258px;margin-top: 20px; line-height: 22px;resize:none;"></textarea>
+						
+				</div>
+		</div>
+
+
+
+
+		
+			
+
+
+</div>
+
+	<div class="main_right">
+			<!-- <div class="btn-group btn-group-lg">
+			    <button type="button" class="btn btn-default">运行参数</button>
+			    <button type="button" class="btn btn-default">运行能效</button>
+			    <button type="button" class="btn btn-default">运行记录</button>
+			    <button type="button" class="btn btn-default">能耗统计</button>
+			</div> -->
+			<div class="map">
+				<img id="map" src="" width="100%" height="100%" >
+			</div>
+		</div>
+
+	
+	
+</div>
+
+
+<div class="main3">			
+			<div class="main_table">
+				
+						<table class="table table-striped">
+						  <!-- <caption>条纹表格布局</caption> -->
+						  <thead>
+						    <tr>
+						      
+						      <th>序号</th>
+						      <th>项目名称</th>
+						      <th>项目区域</th>
+						      <th>项目面积（万方米）</th>
+						      <th>项目类型</th>
+						      <th>主机形式</th>
+						      <th>设计冷负荷</th>
+						      <th>设计热负荷</th>
+						    </tr>
+						  </thead>
+						  <tbody id="HtmlList">
+						    
+
+						  </tbody>
+						</table>
+					<ul class="pagination pagination-sm">
+					</ul>
+				</div>
+
+	</div><!-- main3结束 -->
+
+
+
+
+
+
+</div>
+
+	
+<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/public.js"></script>
+<script type="text/javascript" src="../../js/power/opration.js"></script>
+</body>
+</html>

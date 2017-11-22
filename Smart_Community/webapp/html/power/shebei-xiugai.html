@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/shebei-xinxi.css">
+	<link rel="stylesheet" type="text/css" href="../../js/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../layer/layer.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/public.js"></script>
+</head>
+<body onload="showTime()">
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right"> 
+				<a href="#" id="result" class="navbar-link">
+				</a>
+				</p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span>设备信息 > </span><span style="color: #5cc0c0">设备信息修改</span></a>
+			</div>
+
+
+		<div class="main-body">
+				
+<form name="toform" id="toform">
+				<div class="main_r">
+						<div class="main_left_nav" style=" height:40px;background-color: #fbfbfb;border-bottom: 1px solid #ddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">机组基本信息
+						</div>
+							<div class="main_rc">
+								
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label" style="width: 11%"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp设备名称:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" check-type="*" check-tip="设备名称不能为空！" id="equipmentName" name="equipmentName" type="text" >
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label" style="width: 11%"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp区域名称:</label>
+								    <div class="col-sm-10">
+								      <div class="col-lg-6">
+							                <div class="input-group">
+<!-- 							                <input type="text" class="form-control"  id="regionId" name="regionId" style="display:none"> -->
+<!-- 							                    <input type="text" class="form-control" placeholder="选择区域" id="regionName"> -->
+<!-- 							                    <div class="input-group-btn"> -->
+<!-- 							                        <button type="button" class="btn btn-default  -->
+<!-- 							                        dropdown-toggle" data-toggle="dropdown"> -->
+<!-- 							                            <span class="caret"></span> -->
+<!-- 							                        </button> -->
+<!-- 							                        <ul class="dropdown-menu pull-right" id="toquyu"> -->
+							                        
+<!-- 							                        </ul> -->
+<!-- 							                    </div>/btn-group -->
+													  <select class="form-control" check-type="*" check-tip="请选择区域名称！" id="toquyu" name="regionId" placeholder="选择区域">
+													    <option selected="" value="" style="width: 11%">
+                                                          区域名称
+                                                        </option>
+                                                        
+                                                    </select>
+							                </div><!-- /input-group -->
+							            </div><!-- /.col-lg-6 -->
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label" style="width: 11%"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp项目名称:</label>
+								    <div class="col-sm-10">
+								      <div class="col-lg-6">
+							                <div class="input-group">
+<!-- 							                <input type="text" class="form-control"  id="projectId" name="projectId" style="display:none"> -->
+<!-- 							                    <input type="text" class="form-control" placeholder="选择项目" id="projectName"> -->
+<!-- 							                    <div class="input-group-btn"> -->
+<!-- 							                        <button type="button" class="btn btn-default  -->
+<!-- 							                        dropdown-toggle" data-toggle="dropdown"> -->
+<!-- 							                            <span class="caret"></span> -->
+<!-- 							                        </button> -->
+<!-- 							                        <ul class="dropdown-menu pull-right" id="toxiangmu"> -->
+							                        
+<!-- 							                        </ul> -->
+<!-- 							                    </div>/btn-group -->
+                                                    <select class="form-control" id="toxiangmu" check-type="*" check-tip="请选择项目名称！" name="projectId" placeholder="选择项目">
+													    <option selected="" value=""style="width: 11%">
+                                                        &nbsp项目名称
+                                                        </option>
+                                                      
+                                                    </select>
+							                </div><!-- /input-group -->
+							            </div><!-- /.col-lg-6 -->
+								    </div>
+								  </div>
+
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label"style="width: 11%"><img src="../../img/xing.png" style="width: 10px; height:10px; margin-top: -3px;" />&nbsp设备类型:</label>
+								    <div class="col-sm-10">
+								      <div class="col-lg-6">
+							                <div class="input-group">
+<!-- 							                <input type="text" class="form-control"  id="equipmentTypeId" name="equipmentTypeId" style="display:none"> -->
+<!-- 							                    <input type="text" class="form-control" placeholder="选择设备类型" id="equipmentTypeName"> -->
+<!-- 							                    <div class="input-group-btn"> -->
+<!-- 							                        <button type="button" class="btn btn-default  -->
+<!-- 							                        dropdown-toggle" data-toggle="dropdown"> -->
+<!-- 							                            <span class="caret"></span> -->
+<!-- 							                        </button> -->
+
+<!-- 							                        <ul class="dropdown-menu pull-right" id="shebei"> -->
+							                           
+<!-- 							                        </ul> -->
+							                        
+<!-- 							                    </div>/btn-group -->
+
+                                                   <select class="form-control" id="shebei" name="equipmentTypeId" check-type="*" check-tip="请选择项目类型！"  placeholder="选择设备类型">
+													    <option selected="" value="" style="width: 11%">
+                                                       设备名称
+                                                        </option>
+                                     
+                                                    </select>
+
+							                </div><!-- /input-group -->
+							                
+							            </div><!-- /.col-lg-6 -->
+							            <span  style="float: right;position: absolute;padding: -20px 26px 20px 355px;"><a href="#" class="ii"><i class="glyphicon glyphicon-edit" style="font-size: 15px;margin-top: 10px;"></i></a></span>
+								    </div>
+								  </div>
+
+
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label" style="width: 11%;padding-left:25px;">安装地址：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="installationAddress"  name ="installationAddress" type="text" >
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label"style="width: 11%;padding-left:25px;">生产厂家：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="manufacturer"   name="manufacturer" type="text" >
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label"style="width: 11%;padding-left:25px;">生产厂家地址：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="gomanufacturerAddress"  name="gomanufacturerAddress" type="text" >
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label"style="width: 11%;padding-left:25px;">联系电话：</label>
+								    <div class="col-sm-10">
+
+								      <input class="form-control" id="contactNumber"  name="contactNumber" type="text" >
+
+								    </div>
+								  </div>
+								  
+							</div>
+
+						<div class="main_con"> 
+							<div class="main_left_nav" style=" height:40px;background-color: #fbfbfb;border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">机组参数
+							</div>
+							<div class="main_rc2">
+									<div class="form-group">
+								    <label class="col-sm-2 control-label">机组型号:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="unitModel"  name="unitModel" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">出厂编号:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="factoryNumber"  name="factoryNumber" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">功率kW:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="power"   name="power" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">电压V:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="voltage"  name="voltage" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">重量kg:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="weight" name="weight" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">扬程m:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="lift"  name="lift" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">转速r/min:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="speed" name="speed" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+
+
+								
+							</div>
+							<div class="main_rc3">
+									<div class="form-group">
+								    <label class="col-sm-2 control-label">流量m3/h:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="flow" name="flow" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">回路数:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="loopNumber"  name="loopNumber" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">温度限制℃:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="temperatureRestriction"  name="temperatureRestriction" type="text"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">容量m3:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="capacity" name="capacity" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">电流A:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="electricCurrent" name="electricCurrent" type="number"  style="width: 67%;">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-sm-2 control-label">备注:</label>
+								    <div class="col-sm-10">
+								      <textarea   id="remarks"  style="width:360px;height:83px;vertical-align: top; resize:none;" name="remarks"></textarea>
+								    </div>
+								  </div>
+								  
+
+
+								
+							</div>
+
+						</div>
+
+						<div class="main_con2">
+							<div class="main_left_nav" style=" height:40px;background-color: #fbfbfb;border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;">
+							<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">机组参数
+							</div>
+							<div class="main_rc5">
+									<div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">是否使用:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="ifEasyUse" name="ifEasyUse" type="text"  style="width: 40%;">
+								    </div>
+								  </div>
+
+								  <div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">是否完好:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="ifIntact" name="ifIntact" type="text"  style="width: 40%;">
+								    </div>
+								  </div>
+								  <div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">设备使用状态:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="usingState" name="usingState" type="text"  style="width: 40%;">
+								    </div>
+								  </div>
+								  <div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">设备完好状态:</label>
+								    <div class="col-sm-10">
+								      <input class="form-control"  id="intactState" name="intactState" type="text"  style="width: 40%;">
+								    </div>
+								  </div>
+							
+								
+							</div>
+
+
+							<div class="main_rc6">
+									<div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">安装单位：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="installationUnit"  name="installationUnit" type="text"  style="width: 40%;">
+								    </div>
+								  </div>
+
+								  <div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">安装联系人：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="installContacts"  name="installContacts" type="text"  style="width: 40%;">
+								    </div>
+								  </div>
+								  <div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">联系方式：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="contactInformation"  type="text" name="contactInformation"  style="width: 40%;">
+								    </div>
+								  </div>
+								  <div class="form-group" style="width: 684px;">
+								    <label class="col-sm-2 control-label">保修终止日：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="warrantyTermination"  name="warrantyTermination" type="text"  style="width: 40%;" placeholder="选择日期" readonly="readonly">
+								    </div>
+								  </div>
+							
+								
+							</div>
+
+
+							
+							<div class="main_rc7">
+								
+									<div class="form-group" style="width: 758px;">
+								    <label class="col-sm-2 control-label">安装日期：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="installTime"  name="installTime" type="text"  style="width: 40%;" placeholder="选择日期" readonly="readonly">
+								    </div>
+								  </div>
+
+								  <div class="form-group" style="width: 758px;">
+								    <label class="col-sm-2 control-label">启用时间：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="enableTime"  name="enableTime" type="text"  style="width: 40%;" placeholder="选择日期" readonly="readonly">
+								    </div>
+								  </div>
+								  <div class="form-group" style="width: 758px;">
+								    <label class="col-sm-2 control-label">交接时运行状况：</label>
+								    <div class="col-sm-10">
+								      <input class="form-control" id="handoverTimeType"  type="text" name="handoverTimeType"  style="width: 40%;">
+								    </div>
+								  </div>
+								  
+							
+								
+
+								
+							</div><!-- main-rc4结束 -->
+							
+							
+							    <input type="text" style="display:none" name="equipmentIedgerId" id="equipmentIedgerId">
+								<button type="button" class="btn btn-info" id="xiugai">保存</button>
+								<button type="button" class="btn btn-info dele" style="background-color: #ccc;color: #666;border: none;" id="quxiao">取消</button>
+<!-- 								<a href="/homepage/shebei" class="btn btn-info dele" style="background-color: #ccc;color: #666;border: none;">取消</a> -->
+
+
+
+
+						</div>
+
+
+						</div>
+</form>
+
+				</div>	
+
+				
+			</div>
+
+
+
+		
+
+
+</div><!-- main-body结束 -->
+
+		
+
+<!-- 按钮触发模态框 -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 444px;margin: 0 auto;">
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="myModalLabel">
+                    项目类型<span><i class="glyphicon glyphicon-remove" data-dismiss="modal" style="float: right; color: #ccc"></i></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+  <div class="main">
+
+        
+
+    <div class="center_ll" style="width:180px;height:260px; float: left; border:1px solid #999;overflow:scroll;" >
+
+        <table id='table1' width="100%" border="0" cellspacing="0" cellpadding="0" >
+           
+          </table>
+
+        </div>
+        <div class="center_rr"style="width:190px;height:260px; float: right;">
+            <form class="form-horizontal" role="form">
+                <div class="form-group" style="width: 258px;">
+                    <label class="col-sm-2 control-label" style="width: 109px;margin-left: 106px;">当前类型名称:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="focusedInput" type="text" value="" style=" width: 100%; margin-left: 110px;">
+                </div>
+                </div>
+            </form>
+            <button type="button" id="update" class="btn btn-info" style="width: 127px;margin-left: 20px;height: 30px;">保存</button>
+            <button type="button" id="insert" class="btn btn-info" style="width: 127px;height: 30px;margin-left: 20px;color: #fff;border: none;margin-top: 20px;">添加</button>
+            <button type="button" id="del" class="btn btn-infodel "  style="width: 127px;height: 30px;margin-left: 20px;color: #fff;border: none;margin-top: 20px;">删除</button>
+        </div>  
+   
+
+    </div>
+            <div class="modal-footer">
+<!--                 <button type="button" class="btn btn-primary b-p" style="background-color: #5cc0c0; border-color: #5cc0c0;"> -->
+<!--                     确定 -->
+<!--                 </button> -->
+                
+                </button>
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+
+
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >  
+    <div class="modal-dialog" role="document">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                    <span aria-hidden="true">×</span>  
+                </button>  
+                <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-exclamation-sign" style="font-size: 20px;color: red; vertical-align: top;"></i>&nbsp提示</h4>  
+            </div>  
+            <div class="modal-body">  
+                <p>您确定要删除吗？如果删除则会删除该类型下的所有项目</p>  
+            </div>  
+            <div class="modal-footer footer2">  
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>  
+                <button type="button" class="btn btn-primary" id="delete">删除</button>  
+            </div>  
+        </div>  
+</div>  
+  </div>
+	</div>
+<!-- 主体结束 -->
+<script type="text/javascript" src="../../js/power/shebei-xiugai.js"></script>
+</body>
+</html>

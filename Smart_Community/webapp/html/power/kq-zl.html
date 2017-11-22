@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title></title>
+	
+
+
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/kq-zl.css">
+	<link href="../../css/zTreeStyle.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts.js"></script>
+	<script type="text/javascript" src="../../layer/layer.js"></script>
+	<script type="text/javascript" src="../../js/macarons.js"></script>
+	
+
+<body>
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right">
+				 <a href="#" id="result" class="navbar-link"></a>
+				 </p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span >运行参数</span><span style="color: #5cc0c0">&nbsp>&nbsp空气质量监测</span></a>
+			</div>
+
+
+	<div class="main-body">
+		
+				
+		
+
+<!-- main2 -->
+		<div class="main_left2">
+			<div class="main_nav">
+			
+						<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">空气质量监测:&nbsp<span style="color: #5cc0c0;">8493</span></p>
+						<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">室外温度：<span style="color: #5cc0c0;" id="wendu"></span></p>
+						<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">室外湿度：<span style="color: #5cc0c0;" id="shidu"></span></p>
+			</div>
+
+			<div class="content">
+				<table class="table table-bordered tab" style="margin-top: 20px;">
+				  
+				  <thead>
+				    <tr>
+				      <th style="text-align: center;">类型</th>
+				      <th style="text-align: center;">1#顶AHU</th>
+				      <th style="text-align: center;">1#底AHU</th>
+				      <th style="text-align: center;">2#顶AHU</th>
+				      <th style="text-align: center;">2#底AHU</th>
+				      <th style="text-align: center;">3#顶AHU</th>
+				      <th style="text-align: center;">3#底AHU</th>
+				      <th style="text-align: center;">4#顶AHU</th>
+				      <th style="text-align: center;">4#底AHU</th>
+				      <th style="text-align: center;">5#顶AHU</th>
+				      <th style="text-align: center;">5#底AHU</th>
+				      <th style="text-align: center;">6#顶1AHU</th>
+				      <th style="text-align: center;">6#底2AHU</th>
+				      
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td >送风温度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				      
+				    </tr>
+				    <tr>
+				      <td >送风湿度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				      
+				    </tr>
+				    <tr>
+				      <td >回风温度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				      
+				    </tr>
+				    <tr>
+				      <td >回风湿度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				     
+				      
+				    </tr>
+				    <tr>
+				      <td >CO2浓度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				     
+				    </tr>
+				  </tbody>
+				</table>
+
+				<table class="table table-bordered tab" style="margin-top: 30px;">
+				  
+				  <thead>
+				    <tr>
+				      <th style="text-align: center;">类型</th>
+				      <th style="text-align: center;">7#底1AHU</th>
+				      <th style="text-align: center;">7#底2AHU</th>
+				      <th style="text-align: center;">8#底1AHU</th>
+				      <th style="text-align: center;">8#底2AHU</th>
+				      <th style="text-align: center;">9#底1AHU</th>
+				      <th style="text-align: center;">9#底2AHU</th>
+				      <th style="text-align: center;">10#底1AHU</th>
+				      <th style="text-align: center;">10#底2AHU</th>
+				      <th style="text-align: center;">11#底1AHU</th>
+				      <th style="text-align: center;">11#底2AHU</th>
+				      <th style="text-align: center;">12#底1AHU</th>
+				      <th style="text-align: center;">12#底2AHU</th>
+				      
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td >送风温度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				      
+				    </tr>
+				    <tr>
+				      <td >送风湿度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				     
+				      
+				    </tr>
+				    <tr>
+				      <td >回风温度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				     
+				    </tr>
+				    <tr>
+				      <td >回风湿度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				     
+				      
+				    </tr>
+				    <tr>
+				      <td >CO2浓度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				      
+				    </tr>
+				  </tbody>
+				</table>
+
+				<table class="table table-bordered tab" style="margin-top: 30px;">
+				  
+				  <thead>
+				    <tr>
+				      <th style="text-align: center;">类型</th>
+				      <th style="text-align: center;">13#底1AHU</th>
+				      <th style="text-align: center;">13#底2AHU</th>
+				      <th style="text-align: center;">14#顶1AHU</th>
+				      <th style="text-align: center;">14#顶2AHU</th>
+				      <th style="text-align: center;">14#底1AHU</th>
+				      <th style="text-align: center;">14#底2AHU</th>
+				      <th style="text-align: center;">15#底1AHU</th>
+				      <th style="text-align: center;">15#底2AHU</th>
+				      <th style="text-align: center;">16#底1AHU</th>
+				      <th style="text-align: center;">16#底2AHU</th>
+				      <th style="text-align: center;">17#顶AHU</th>
+				      <th style="text-align: center;">17#底AHU</th>
+				      <th style="text-align: center;">18#顶AHU</th>
+				      <th style="text-align: center;">18#底AHU</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td >送风温度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				    </tr>
+				    <tr>
+				      <td >送风湿度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				    </tr>
+				    <tr>
+				      <td >回风温度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				    </tr>
+				    <tr>
+				      <td >回风湿度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				    </tr>
+				    <tr>
+				      <td >CO2浓度</td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      <td></td>
+				      
+				    </tr>
+				  </tbody>
+				</table>
+
+			</div>
+
+		</div>
+<!-- main2结束 -->
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+			
+		</div><!-- main-body结束 -->
+
+
+	
+
+
+
+
+		
+
+
+		<input type="text" style="display:none;" id="toID" value="${toID}">
+		<input type="text" style="display:none;" id="city">
+
+</div>
+<!-- 主体结束 -->
+	<script type="text/javascript" src="../../js/power/kq-zl.js"></script>
+<script type="text/javascript">
+var url =  decodeURIComponent(window.location.href);
+// alert(url);
+</script>
+</body>
+</html>

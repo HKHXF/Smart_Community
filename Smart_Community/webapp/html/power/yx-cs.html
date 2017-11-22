@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title></title>
+	
+
+
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../css/multiple-select.css">
+	<link rel="stylesheet" type="text/css" href="../../css/yx-cs.css">
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts.js"></script>
+	<script type="text/javascript" src="../../layer/layer.js"></script>
+	<script type="text/javascript" src="../../js/macarons.js"></script>
+	<script src="../../js/jquery.ztree.core.js" type="text/javascript"></script>
+	<script src="../../js/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<body>
+<!-- 头部开始 -->
+<div class="main">
+
+			<div class="main_nav" style="background-color: #fff;">
+				<p class="navbar-text navbar-right">
+				 <a href="#" id="result" class="navbar-link"></a>
+				 </p>
+				<a class="navbar-brand" href="/homepage/operation" style="#5cc0c0;">
+				<i class="glyphicon glyphicon-adjust"></i>
+							科技能源 > <span style="color: #5cc0c0">运行参数</span></a>
+			</div>
+
+
+	<div class="main-body">
+		
+				
+		
+
+<!-- main2 -->
+		<div class="main_left2">
+			<div class="main_nav">
+						<p style="margin-left: 10px;padding-top: 10px; color: #333; font-size: 14px;">系统运行</p>
+					</div>
+
+			<div class="content">
+			<div class="panel-body">
+					    <div class="row">
+						    <div class='chart-select'>
+						    	<div class="col-md-3" style="width: 12%;">
+						    		<label for="name">选择表名</label>
+							    		<select class="form-control select-option" id="tableMame">
+										</select>
+							    		
+						    	</div>
+						    	<div class="col-md-3" style="width: 15%; height: 34px;" onclick="clickSelect()">
+						    	<label for="name">选择数据</label>
+						    		<select id="ms" multiple="multiple" style="height:34px; width: 50%;" >
+										  	<!-- <option value="1" selected="selected">T1楼顶1号新风机组</option>
+								            <option value="2">February</option>
+								            <option value="3">March</option>
+								            <option value="4">April</option>
+								            <option value="5">May</option>
+								             --> 
+									</select>
+						    	</div>
+						    	<div class="col-md-3" style="width: 12%;">
+						    	<label for="name">数据周期</label>
+						    	<select class="form-control select-option" disabled="disabled">
+									  <option>每分钟</option>
+									  <option>2</option>
+									  <option>3</option>
+									  <option>4</option>
+									  <option>5</option>
+									</select>
+								</div>
+						    	<div class="col-md-3" style="width: 12%;">
+						    	<label for="name">时间范围(小时)</label>
+						    		<select class="form-control select-option" id="defaultTime">
+									  <option selected="selected">选择</option>
+									  <option>1</option>
+									  <option>3</option>
+									  <option>12</option>
+									  <option>24</option>
+									  <option>72</option>
+									</select>
+						    	</div>
+						    	<div class="col-md-3" style="width: 4%;">
+						    		<a href="#" style="line-height: 80px;">或</a>
+						    	</div>
+						    	<div class="col-md-3" style="width: 12%; margin-top: 20px;">
+						    		<input type="text" class="form-control" id="trusteeshipTime" name="trusteeshipTime"  placeholder="输入开始日期" style="font-size: 13px;">
+						    	</div>
+						    	<div class="col-md-3" style="width: 12%; margin-top: 20px;">
+						    		<input type="text" id="expireTime" name="expireTime"  class="form-control" placeholder="输入结束日期" style="font-size: 13px;">
+
+						    	</div>
+						    	<button class="btn btn-info" id="baocun2" type="button" style="margin-top: 33px;    margin-top: 20px; width: 80px; height: 34px; font-size: 14px;">查询</button>
+
+					    	</div>
+					    	<div id="mode1chatrs" class="charts" style="width: 100%; height: 400px; margin-top: 50px;"></div>
+					    	
+					    </div>
+					  </div>
+
+				
+
+			</div>
+
+		</div>
+<!-- main2结束 -->
+		
+			
+
+
+			
+		</div>
+
+
+
+	</div>
+
+
+</div><!-- main-body结束 -->
+
+		
+
+
+
+
+	</div>
+<!-- 主体结束 -->
+
+<!-- <script src="../../js/power/xm-xinzeng.js" type="text/javascript"/></script> -->
+<script type="text/javascript" src="../../js/multiple-select.js"></script>
+<script type="text/javascript" src="../../js/power/yx-cs.js"></script>
+<!-- <script> -->
+<!-- //     $(function() { -->
+<!-- //         $('#ms').change(function() { -->
+<!-- //             console.log($(this).val()); -->
+<!-- //         }).multipleSelect({ -->
+<!-- //             width: '100%' -->
+<!-- //         }); -->
+<!-- //     }); -->
+<!-- </script> -->
+</body>
+</html>

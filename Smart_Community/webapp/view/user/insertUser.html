@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新用户注册</title>
+		<script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
+	</head>
+	<body>
+		注册
+		<br />
+		<form id="toform">
+				<input id="username" name="userName" type="text">用户名</input><br/>
+				<input id="password" name="password" type="text">密码</input>
+				<br />
+				<input id="age1" name="age" type="radio" value="男">男</input>
+				<input id="age2" name="age" type="radio" value="女">女</input>
+				<br />
+				<select name="useReal"> 
+				<option value="admin">管理员</option> 
+				<option value="user">普通用户</option>
+				<option value="testuser">测试用户</option> 
+				</select> 
+		</form>
+		<button type="button" id="into">提交</button>
+	</body>
+	<script type="text/javascript">
+	$("#into").click(function(){
+		
+			var formData = $("#toform").serialize(); 
+			$.ajax({
+			type:"get",
+			url:"/user/insertUser",
+			data:formData,
+			async:false,
+			success:function(msg){
+				if(msg == 0){
+					alert("添加成功");
+					window.location.href="/user/SelectMohuFreemarker";
+				}else{
+					alert("添加异常");
+				}
+			},
+			error:function(msg){
+				alert("添加异常");
+			}
+		});
+			
+		})
+		
+		
+	</script>
+</html>
